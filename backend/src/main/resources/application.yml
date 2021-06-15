@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      database: kulturbuero
+server:
+  error:
+    include-message: always
