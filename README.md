@@ -1,3 +1,3 @@
 # kulturbüRO capstone project
 
-find all events in the rosenheim district
+find all events in and around rosenheim
