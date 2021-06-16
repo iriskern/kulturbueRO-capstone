@@ -7,26 +7,21 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "events")
-public class Event {
+@Document(collection = "locations")
+public class Location {
 
     @Id
     private String id;
-    private String title;
-    private String description;
-    private LocalDateTime dateAndTime;
-    private Location location;
-    private EventSetting eventSetting;
-    private List<EventType> eventTypes;
+    private String name;
+    private Address address;
+    private String openingHours;
     private String picture;
-    private String infoUrl;
-    private String ticketUrl;
-    private String entranceFee;
+    private String homepage;
+    private List<Event> upcomingEvents;
 }
