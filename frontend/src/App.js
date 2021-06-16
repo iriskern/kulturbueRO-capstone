@@ -7,7 +7,7 @@ export default function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path="/" exact>
+        <Route path="/home" exact>
           <Homepage />
         </Route>
       </Switch>
