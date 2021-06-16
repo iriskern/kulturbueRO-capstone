@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 export default function Header() {
   return (
     <Wrapper>
-      <a href="#">
+      <a href="/navigation">
         <span></span>
       </a>
       <img src={"/icon_k.png"} alt={"icon"} />
