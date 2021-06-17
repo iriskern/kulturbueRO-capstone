@@ -6,7 +6,7 @@ export default createGlobalStyle`
     }
     
     html, body{
-      margin: 0 20px 0 0;
+      margin: 0;
       font-family: "Josefin Sans", sans-serif;
       font-size: 120%;
       background: #699391;

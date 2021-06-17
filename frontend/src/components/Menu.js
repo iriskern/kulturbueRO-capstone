@@ -3,7 +3,8 @@ import styled from "styled-components/macro";
 export default function Menu({ open }) {
   return (
     <StyledMenu open={open}>
-      <a href="/calender">kalender</a>
+      <a href="/events">eventkalender</a>
+      <a href="/locations">locations</a>
       <a href="/myevents">meine events</a>
       <a href="/mylocations">meine locations</a>
     </StyledMenu>
