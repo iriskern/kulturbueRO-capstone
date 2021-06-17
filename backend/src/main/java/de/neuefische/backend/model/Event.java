@@ -28,5 +28,5 @@ public class Event {
     private String picture;
     private String infoUrl;
     private String ticketUrl;
-    private String entranceFee;
+    private decimal(6,2) entranceFee;
 }
