@@ -1,17 +1,17 @@
 package de.neuefische.backend.model;
 
 public enum EventType {
-    CINEMA,
-    COMEDY,
-    DANCE,
-    EXHIBITION,
-    FOOD_DRINK,
-    KIDS,
-    MUSIC,
-    NIGHTLIFE,
-    OTHER,
-    SPORTS,
-    TALK_READING,
-    THEATRE,
-    WORKSHOP
+    CINEMA("Kino"),
+    COMEDY("Comedy"),
+    DANCE("Tanz"),
+    EXHIBITION("Ausstellung"),
+    FOOD_DRINK("Essen und Trinken"),
+    KIDS("Kinder"),
+    MUSIC("Musik"),
+    NIGHTLIFE("Nachtleben"),
+    OTHER("Verschiedenes"),
+    SPORTS("Sport"),
+    TALK_READING("Lesung"),
+    THEATRE("Theater"),
+    WORKSHOP("Workshop")
 }
