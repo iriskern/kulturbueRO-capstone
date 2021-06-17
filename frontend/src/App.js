@@ -1,7 +1,16 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Homepage from "./pages/Homepage";
+
 export default function App() {
   return (
-    <div>
-    Hallo
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/home" exact>
+          <Homepage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
