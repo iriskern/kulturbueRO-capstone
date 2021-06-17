@@ -21,7 +21,7 @@ public class Event {
     private String id;
     private String title;
     private String description;
-    private LocalDateTime dateAndTime;
+    private LocalDateTime dateTime;
     private Location location;
     private EventSetting eventSetting;
     private List<EventType> eventTypes;
