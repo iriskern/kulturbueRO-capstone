@@ -13,11 +13,11 @@ public enum EventType {
     SPORTS("Sport"),
     TALK_READING("Lesung"),
     THEATRE("Theater"),
-    WORKSHOP("Workshop")
+    WORKSHOP("Workshop");
         
-  public String eventTypeDescription;
-   
-  EventType(String eventTypeDescription) {
+    public String eventTypeDescription;
+
+    EventType(String eventTypeDescription) {
       this.eventTypeDescription = eventTypeDescription;
-  }
+    }
 }
