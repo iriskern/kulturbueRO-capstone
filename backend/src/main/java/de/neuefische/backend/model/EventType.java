@@ -1,5 +1,8 @@
 package de.neuefische.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@JsonFormat(shape=JsonFormat.Shape.OBJECT)
 public enum EventType {
     CINEMA("Kino"),
     COMEDY("Comedy"),
