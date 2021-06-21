@@ -1,21 +1,25 @@
 import { useHistory } from "react-router-dom";
-import styled from "styled-components/macro";
 import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
+import styled from "styled-components/macro";
 
 export default function EventCard({ event }) {
   const history = useHistory();
-  const handleClick = () => history.push("/events/${event.id}/details");
+  const handleClick = () => history.push(`/events/${event.id}/details`);
 
   const dateTime = LocalDateTime.parse(event.dateTime);
 
   return (
     <CardWrapper onClick={handleClick}>
       <CardPicture>
-        <date>
-          <month>{dateTime.format(DateTimeFormatter.ofPattern("MM"))}</month>
+        <p className="date">
+          <p className="month">
+            {dateTime.format(DateTimeFormatter.ofPattern("MM"))}
+          </p>
           <br />
-          <day>{dateTime.format(DateTimeFormatter.ofPattern("dd"))}</day>
-        </date>
+          <p className="day">
+            {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
+          </p>
+        </p>
         <img src={event.picture} alt={"event"} />
       </CardPicture>
       <h2>{event.title}</h2>
@@ -51,22 +55,24 @@ const CardWrapper = styled.button`
 `;
 
 const CardPicture = styled.div`
-  date {
+  .date {
     text-align: center;
-    line-height: 80%;
+    line-height: 30%;
     position: absolute;
     left: 20px;
+    top: -5px;
     background: #ecf765;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
-    month {
-      font-size: 60%;
+    .month {
+      font-size: 80%;
     }
 
-    day {
-      font-size: 140%;
+    .day {
+      font-size: 160%;
       font-weight: bold;
+      padding-bottom: 3px;
     }
   }
 
