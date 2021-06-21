@@ -29,4 +29,6 @@ public class Event {
     private String infoUrl;
     private String ticketUrl;
     private double entranceFee;
+    private boolean highlightEvent;
+    private boolean myEvent;
 }
