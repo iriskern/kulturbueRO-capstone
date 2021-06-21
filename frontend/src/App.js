@@ -8,12 +8,12 @@ export default function App() {
     <Layout>
       <Router>
         <Switch>
-          <Route path="/home" exact>
-            <Homepage />
-          </Route>
-          <Route path="event/:id/details" exact>
-            <EventDetailsPage />
-          </Route>
+          <Route component={Homepage} path="/home" exact />
+          <Route
+            component={EventDetailsPage}
+            path="/events/:id/details"
+            exact
+          />
         </Switch>
       </Router>
     </Layout>
