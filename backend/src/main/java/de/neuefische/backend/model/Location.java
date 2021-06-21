@@ -24,4 +24,5 @@ public class Location {
     private String picture;
     private String homepage;
     private List<Event> upcomingEvents;
+    private boolean myLocation;
 }
