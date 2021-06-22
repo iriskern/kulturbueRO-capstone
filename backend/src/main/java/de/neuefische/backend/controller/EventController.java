@@ -31,7 +31,7 @@ public class EventController {
 
     @GetMapping("/{id}/details")
     public Event getEventById(@PathVariable String id) {
-        return eventService.getEventById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "event does not exist"));
+        return eventService.getEventById(id).orElseThrow(() => new ResponseStatusException(HttpStatus.NOT_FOUND, "event does not exist"));
 
     }
 }
