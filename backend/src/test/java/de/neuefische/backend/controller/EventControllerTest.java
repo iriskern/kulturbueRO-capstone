@@ -51,7 +51,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021, 8, 5, 20, 0))
                         .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("testurl1")
+                        .pictureUrl("testurl1")
                         .eventTypes(List.of(EventType.MUSIC))
                         .build(),
                 Event.builder()
@@ -60,7 +60,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021, 7, 22, 19, 0))
                         .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("testurl2")
+                        .pictureUrl("testurl2")
                         .eventTypes(List.of(EventType.CINEMA))
                         .build()
         ));
@@ -78,7 +78,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021, 8, 5, 20, 0))
                         .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("testurl1")
+                        .pictureUrl("testurl1")
                         .eventTypes(List.of(EventType.MUSIC))
                         .build(),
                 Event.builder()
@@ -87,7 +87,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021, 7, 22, 19, 0))
                         .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("testurl2")
+                        .pictureUrl("testurl2")
                         .eventTypes(List.of(EventType.CINEMA))
                         .build()
         ));
