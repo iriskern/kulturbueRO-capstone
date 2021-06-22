@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 export default function LocationCard({ location }) {
   return (
     <CardWrapper>
-      <img src={location.picture} alt={"location"} />
+      <img src={location.pictureUrl} alt={"location"} />
       <h2>{location.name}</h2>
       <a href={location.homepage} target="_blank" rel="noreferrer">
         Homepage

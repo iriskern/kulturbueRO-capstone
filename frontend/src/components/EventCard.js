@@ -19,7 +19,7 @@ export default function EventCard({ event }) {
             {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
           </p>
         </div>
-        <img src={event.picture} alt={"event"} />
+        <img src={event.pictureUrl} alt={"event"} />
       </CardPicture>
       <h2>{event.title}</h2>
       <p>
