@@ -24,5 +24,5 @@ public class Location {
     private String pictureUrl;
     private String homepage;
     private List<Event> upcomingEvents;
-    private boolean myLocation;
+    private List<String> watchedBy;
 }
