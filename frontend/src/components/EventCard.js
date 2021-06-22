@@ -56,11 +56,11 @@ const CardWrapper = styled.button`
 
 const CardPicture = styled.div`
   .date {
+    height: 51px;
     text-align: center;
-    line-height: 30%;
+    line-height: 50%;
     position: absolute;
     left: 20px;
-    top: -5px;
     background: #ecf765;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
