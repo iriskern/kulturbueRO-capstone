@@ -6,7 +6,7 @@ export default function useEvent(id) {
 
   useEffect(() => {
     axios
-      .get("events/${id}/details")
+      .get(`/events/${id}/details`)
       .then((response) => response.data)
       .then(setEvent)
       .catch((error) => console.log(error.message));

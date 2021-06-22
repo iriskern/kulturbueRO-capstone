@@ -6,7 +6,7 @@ export default function useEvents() {
 
   useEffect(() => {
     axios
-      .get("events")
+      .get("/events")
       .then((response) => response.data)
       .then(setEvents)
       .catch((error) => console.log(error.message));
