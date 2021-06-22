@@ -4,7 +4,9 @@ export default function Menu({ open }) {
   return (
     <StyledMenu open={open}>
       <h1>
-        kulturbü<span>RO</span>
+        <a href="/home">
+          kulturbü<span>RO</span>
+        </a>
       </h1>
       <a href="/events">eventkalender</a>
       <a href="/locations">locations</a>
@@ -29,7 +31,7 @@ const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out;
   z-index: 9;
 
-  h1 > span {
+  a > span {
     color: #ecf765;
   }
 
