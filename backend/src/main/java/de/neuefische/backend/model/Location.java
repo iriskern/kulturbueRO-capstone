@@ -21,7 +21,7 @@ public class Location {
     private String name;
     private Address address;
     private String openingHours;
-    private String picture;
+    private String pictureUrl;
     private String homepage;
     private List<Event> upcomingEvents;
     private boolean myLocation;
