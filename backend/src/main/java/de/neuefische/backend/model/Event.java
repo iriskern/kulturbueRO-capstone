@@ -25,8 +25,10 @@ public class Event {
     private Location location;
     private EventSetting eventSetting;
     private List<EventType> eventTypes;
-    private String picture;
+    private String pictureUrl;
     private String infoUrl;
     private String ticketUrl;
     private double entranceFee;
+    private boolean highlightEvent;
+    private List<String> watchedBy;
 }

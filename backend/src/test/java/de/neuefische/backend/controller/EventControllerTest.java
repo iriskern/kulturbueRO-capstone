@@ -48,22 +48,23 @@ class EventControllerTest {
                 Event.builder()
                         .id("1")
                         .title("Dicht & Ergreifend")
-                        .dateTime(LocalDateTime.parse("2021-08-05T20:00"))
+                        .dateTime(LocalDateTime.of(2021, 8, 5, 20, 0))
                         .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("https://strandkorb-openair.de/wp-content/uploads/2021/04/DichtErgreifend_Rosenheim_NEU-300x300.png")
+                        .pictureUrl("testurl1")
                         .eventTypes(List.of(EventType.MUSIC))
                         .build(),
                 Event.builder()
                         .id("2")
                         .title("OpenAir Kino: Unterwegs mit Jacqueline")
-                        .dateTime(LocalDateTime.parse("2021-07-22T19:00"))
+                        .dateTime(LocalDateTime.of(2021, 7, 22, 19, 0))
                         .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("https://media.services.cinergy.ch/media/box1600/be7f8c81a9e779f3b1d396d2ec2fe57387ba8527.jpg")
+                        .pictureUrl("testurl2")
                         .eventTypes(List.of(EventType.CINEMA))
                         .build()
         ));
+
 
         //When
         ResponseEntity<Event[]> response = testRestTemplate.getForEntity("http://localhost:" + port + "/events", Event[].class);
@@ -74,19 +75,19 @@ class EventControllerTest {
                 Event.builder()
                         .id("1")
                         .title("Dicht & Ergreifend")
-                        .dateTime(LocalDateTime.parse("2021-08-05T20:00"))
+                        .dateTime(LocalDateTime.of(2021, 8, 5, 20, 0))
                         .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("https://strandkorb-openair.de/wp-content/uploads/2021/04/DichtErgreifend_Rosenheim_NEU-300x300.png")
+                        .pictureUrl("testurl1")
                         .eventTypes(List.of(EventType.MUSIC))
                         .build(),
                 Event.builder()
                         .id("2")
                         .title("OpenAir Kino: Unterwegs mit Jacqueline")
-                        .dateTime(LocalDateTime.parse("2021-07-22T19:00"))
+                        .dateTime(LocalDateTime.of(2021, 7, 22, 19, 0))
                         .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
-                        .picture("https://media.services.cinergy.ch/media/box1600/be7f8c81a9e779f3b1d396d2ec2fe57387ba8527.jpg")
+                        .pictureUrl("testurl2")
                         .eventTypes(List.of(EventType.CINEMA))
                         .build()
         ));

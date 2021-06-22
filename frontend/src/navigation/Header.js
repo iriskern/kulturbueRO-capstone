@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <Wrapper>
       <a href="/home">
-        <img src={"/icon_k.png"} alt={"icon"} />
+        <img src={"/favicon.ico"} alt={"icon"} />
       </a>
       <div>
         <Burger open={open} setOpen={setOpen} />

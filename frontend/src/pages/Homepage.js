@@ -1,18 +1,9 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import EventCard from "../components/EventCard";
 import styled from "styled-components/macro";
+import useEvents from "../hooks/useEvents";
 
 export default function Homepage() {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("events")
-      .then((response) => response.data)
-      .then(setEvents)
-      .catch((error) => console.log(error.message));
-  }, []);
+  const { events } = useEvents();
 
   return (
     <Wrapper>
@@ -35,6 +26,12 @@ const Wrapper = styled.div`
     background: #effffa;
     font-size: 100%;
     text-align: center;
-    padding: 40px 15px;
+    padding: 20px 15px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
