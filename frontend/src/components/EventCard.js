@@ -11,15 +11,14 @@ export default function EventCard({ event }) {
   return (
     <CardWrapper onClick={handleClick}>
       <CardPicture>
-        <p className="date">
+        <div className="date">
           <p className="month">
             {dateTime.format(DateTimeFormatter.ofPattern("MM"))}
           </p>
-          <br />
           <p className="day">
             {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
           </p>
-        </p>
+        </div>
         <img src={event.picture} alt={"event"} />
       </CardPicture>
       <h2>{event.title}</h2>
