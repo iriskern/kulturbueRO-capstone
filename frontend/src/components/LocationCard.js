@@ -5,7 +5,7 @@ export default function LocationCard({ location }) {
     <CardWrapper>
       <img src={location.picture} alt={"location"} />
       <h2>{location.name}</h2>
-      <a href={location.homepage} target="_blank">
+      <a href={location.homepage} target="_blank" rel="noreferrer">
         Homepage
       </a>
       <p>
