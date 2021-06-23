@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -34,7 +35,7 @@ public class EventService {
                 .title(event.getTitle())
                 .description(event.getDescription())
                 .dateTime(event.getDateTime())
-                .location(locationService.getLocationById(location.getId()).get())
+                .location(locationService.getLocationById(location.getId()).orElseThrow(NoSuchElementException::new))
                 .eventSetting(event.getEventSetting())
                 .eventTypes(event.getEventTypes())
                 .pictureUrl(event.getPictureUrl())
