@@ -43,7 +43,6 @@ const CardWrapper = styled.button`
 
   h2 {
     font-size: 110%;
-    text-align: left;
     margin: 10px 5px;
   }
 
