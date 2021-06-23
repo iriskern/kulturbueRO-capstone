@@ -31,13 +31,19 @@ const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out;
   z-index: 9;
 
+  h1 {
+    text-align: left;
+    padding: 0px;
+    font-size: 160%;
+  }
+
   a > span {
     color: #ecf765;
   }
 
   a {
+    font-size: 100%;
     color: #0d0c1d;
-    text-decoration: none;
     transition: color 0.3s linear;
   }
 `;

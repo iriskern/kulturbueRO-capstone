@@ -20,4 +20,38 @@ export default createGlobalStyle`
       color: inherit;
       border: none;
     }
+
+    h1 {
+      background: #effffa;
+      font-size: 100%;
+      text-align: center;
+      padding: 20px 15px;
+    }
+
+    h2 {
+      font-size: 110%;
+      margin: 10px 5px;
+    }
+
+    h3 {
+      font-size: 90%;
+      margin: 15px 5px;
+    }
+
+    p {
+      font-size: 80%;
+      text-decoration: none;
+      margin: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 80%;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    img {
+      width: 330px;
+    }
 `;

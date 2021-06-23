@@ -12,9 +12,7 @@ export default function EventCard({ event }) {
     <CardWrapper onClick={handleClick}>
       <CardPicture>
         <div className="date">
-          <p className="month">
-            {dateTime.format(DateTimeFormatter.ofPattern("MM"))}
-          </p>
+          <p>{dateTime.format(DateTimeFormatter.ofPattern("MM"))}</p>
           <p className="day">
             {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
           </p>
@@ -40,17 +38,6 @@ const CardWrapper = styled.button`
   border-radius: 5px;
   position: relative;
   cursor: pointer;
-
-  h2 {
-    font-size: 110%;
-    margin: 10px 5px;
-  }
-
-  p {
-    font-size: 80%;
-    text-decoration: none;
-    margin: 5px;
-  }
 `;
 
 const CardPicture = styled.div`
@@ -64,18 +51,10 @@ const CardPicture = styled.div`
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
-    .month {
-      font-size: 80%;
-    }
-
     .day {
       font-size: 160%;
       font-weight: bold;
       padding-bottom: 3px;
     }
-  }
-
-  img {
-    width: 330px;
   }
 `;
