@@ -52,7 +52,7 @@ class EventControllerTest {
                         .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
                         .pictureUrl("testurl1")
-                        .eventTypes(List.of(EventType.MUSIC))
+                        .eventTypes(List.of(EventType.MUSIC.eventTypeDescription))
                         .build(),
                 Event.builder()
                         .id("2")
@@ -61,7 +61,7 @@ class EventControllerTest {
                         .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
                         .pictureUrl("testurl2")
-                        .eventTypes(List.of(EventType.CINEMA))
+                        .eventTypes(List.of(EventType.CINEMA.eventTypeDescription))
                         .build()
         ));
 
@@ -79,7 +79,7 @@ class EventControllerTest {
                         .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
                         .pictureUrl("testurl1")
-                        .eventTypes(List.of(EventType.MUSIC))
+                        .eventTypes(List.of(EventType.MUSIC.eventTypeDescription))
                         .build(),
                 Event.builder()
                         .id("2")
@@ -88,7 +88,7 @@ class EventControllerTest {
                         .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
                         .eventSetting(EventSetting.OUTDOOR)
                         .pictureUrl("testurl2")
-                        .eventTypes(List.of(EventType.CINEMA))
+                        .eventTypes(List.of(EventType.CINEMA.eventTypeDescription))
                         .build()
         ));
     }
