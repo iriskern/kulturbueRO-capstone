@@ -10,9 +10,11 @@ export default function LocationsPage() {
       <h1>Locations</h1>
 
       <div>
-        {locations.map((location) => (
-          <LocationCard key={location.id} location={location} />
-        ))}
+        {locations
+          .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+          .map((location) => (
+            <LocationCard key={location.id} location={location} />
+          ))}
       </div>
     </Wrapper>
   );
