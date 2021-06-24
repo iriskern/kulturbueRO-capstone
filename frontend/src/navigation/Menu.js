@@ -1,15 +1,26 @@
 import styled from "styled-components/macro";
+import { NavLink } from "react-router-dom";
 
-export default function Menu({ open }) {
+export default function Menu({ open, setOpen }) {
   return (
     <StyledMenu open={open}>
       <h1>
-        kulturbü<span>RO</span>
+        <StyledLink to="/home" onClick={() => setOpen(!open)}>
+          kulturbü<span>RO</span>
+        </StyledLink>
       </h1>
-      <a href="/events">eventkalender</a>
-      <a href="/locations">locations</a>
-      <a href="/myevents">meine events</a>
-      <a href="/mylocations">meine locations</a>
+      <StyledLink to="/events" onClick={() => setOpen(!open)}>
+        eventkalender
+      </StyledLink>
+      <StyledLink to="/locations" onClick={() => setOpen(!open)}>
+        locations
+      </StyledLink>
+      <StyledLink to="/myevents" onClick={() => setOpen(!open)}>
+        meine events
+      </StyledLink>
+      <StyledLink to="/mylocations" onClick={() => setOpen(!open)}>
+        meine locations
+      </StyledLink>
     </StyledMenu>
   );
 }
@@ -29,13 +40,19 @@ const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out;
   z-index: 9;
 
-  h1 > span {
-    color: #ecf765;
+  h1 {
+    text-align: left;
+    padding: 0px;
+    font-size: 160%;
   }
 
-  a {
-    color: #0d0c1d;
-    text-decoration: none;
-    transition: color 0.3s linear;
+  span {
+    color: #ecf765;
   }
+`;
+
+const StyledLink = styled(NavLink)`
+  font-size: 100%;
+  color: #0d0c1d;
+  transition: color 0.3s linear;
 `;

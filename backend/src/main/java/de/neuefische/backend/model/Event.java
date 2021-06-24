@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -22,9 +23,10 @@ public class Event {
     private String title;
     private String description;
     private LocalDateTime dateTime;
+    @DBRef
     private Location location;
     private EventSetting eventSetting;
-    private List<EventType> eventTypes;
+    private List<String> eventTypes;
     private String pictureUrl;
     private String infoUrl;
     private String ticketUrl;

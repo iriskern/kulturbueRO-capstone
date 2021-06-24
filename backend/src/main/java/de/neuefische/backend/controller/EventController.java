@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("events")
@@ -31,12 +30,8 @@ public class EventController {
 
     @GetMapping("/{id}/details")
     public Event getEventById(@PathVariable String id) {
-        Optional<Event> optionalEvent = eventService.getEventById(id);
-
-        if(optionalEvent.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "event does not exist");
-        }
-
-        return optionalEvent.get();
+        return eventService
+                .getEventById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 }

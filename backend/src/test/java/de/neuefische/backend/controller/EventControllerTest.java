@@ -1,8 +1,6 @@
 package de.neuefische.backend.controller;
 
 import de.neuefische.backend.model.Event;
-import de.neuefische.backend.model.Location;
-import de.neuefische.backend.model.Address;
 import de.neuefische.backend.model.EventSetting;
 import de.neuefische.backend.model.EventType;
 import de.neuefische.backend.repos.EventRepo;
@@ -47,24 +45,35 @@ class EventControllerTest {
         eventRepo.saveAll(List.of(
                 Event.builder()
                         .id("1")
-                        .title("Dicht & Ergreifend")
-                        .dateTime(LocalDateTime.of(2021, 8, 5, 20, 0))
-                        .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
+                        .title("event1")
+                        .description("description1")
+                        .dateTime(LocalDateTime.of(2021, 1,1,10,0))
                         .eventSetting(EventSetting.OUTDOOR)
-                        .pictureUrl("testurl1")
-                        .eventTypes(List.of(EventType.MUSIC))
+                        .eventTypes(List.of(
+                                EventType.MUSIC.description
+                        ))
+                        .pictureUrl("picture1")
+                        .infoUrl("info1")
+                        .ticketUrl("ticket1")
+                        .entranceFee(10.10)
+                        .highlightEvent(false)
                         .build(),
                 Event.builder()
                         .id("2")
-                        .title("OpenAir Kino: Unterwegs mit Jacqueline")
-                        .dateTime(LocalDateTime.of(2021, 7, 22, 19, 0))
-                        .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
+                        .title("event2")
+                        .description("description2")
+                        .dateTime(LocalDateTime.of(2021,2,2,20,0))
                         .eventSetting(EventSetting.OUTDOOR)
-                        .pictureUrl("testurl2")
-                        .eventTypes(List.of(EventType.CINEMA))
+                        .eventTypes(List.of(
+                                EventType.MUSIC.description
+                        ))
+                        .pictureUrl("picture2")
+                        .infoUrl("info2")
+                        .ticketUrl("ticket2")
+                        .entranceFee(20.20)
+                        .highlightEvent(false)
                         .build()
         ));
-
 
         //When
         ResponseEntity<Event[]> response = testRestTemplate.getForEntity("http://localhost:" + port + "/events", Event[].class);
@@ -74,21 +83,33 @@ class EventControllerTest {
         assertThat(response.getBody(), arrayContainingInAnyOrder(
                 Event.builder()
                         .id("1")
-                        .title("Dicht & Ergreifend")
-                        .dateTime(LocalDateTime.of(2021, 8, 5, 20, 0))
-                        .location(Location.builder().id("1").name("Mangfallpark").address(Address.builder().city("Rosenheim").build()).build())
+                        .title("event1")
+                        .description("description1")
+                        .dateTime(LocalDateTime.of(2021, 1,1,10,0))
                         .eventSetting(EventSetting.OUTDOOR)
-                        .pictureUrl("testurl1")
-                        .eventTypes(List.of(EventType.MUSIC))
+                        .eventTypes(List.of(
+                                EventType.MUSIC.description
+                        ))
+                        .pictureUrl("picture1")
+                        .infoUrl("info1")
+                        .ticketUrl("ticket1")
+                        .entranceFee(10.10)
+                        .highlightEvent(false)
                         .build(),
                 Event.builder()
                         .id("2")
-                        .title("OpenAir Kino: Unterwegs mit Jacqueline")
-                        .dateTime(LocalDateTime.of(2021, 7, 22, 19, 0))
-                        .location(Location.builder().id("2").name("Am Salzstadl").address(Address.builder().city("Rosenheim").build()).build())
+                        .title("event2")
+                        .description("description2")
+                        .dateTime(LocalDateTime.of(2021,2,2,20,0))
                         .eventSetting(EventSetting.OUTDOOR)
-                        .pictureUrl("testurl2")
-                        .eventTypes(List.of(EventType.CINEMA))
+                        .eventTypes(List.of(
+                                EventType.MUSIC.description
+                        ))
+                        .pictureUrl("picture2")
+                        .infoUrl("info2")
+                        .ticketUrl("ticket2")
+                        .entranceFee(20.20)
+                        .highlightEvent(false)
                         .build()
         ));
     }
