@@ -14,10 +14,10 @@ public enum EventType {
     TALK_READING("Lesung"),
     THEATRE("Theater"),
     WORKSHOP("Workshop");
-        
-    public String eventTypeDescription;
 
-    EventType(String eventTypeDescription) {
-      this.eventTypeDescription = eventTypeDescription;
+    public final String description;
+
+    EventType(String description) {
+      this.description = description;
     }
 }

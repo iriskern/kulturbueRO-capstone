@@ -6,31 +6,32 @@ import styled from "styled-components/macro";
 export default function EventDetailsPage() {
   const history = useHistory();
   const { id } = useParams();
-  const { event } = useEvent(id);
+  const event = useEvent(id);
 
   const handleClick = () => history.goBack();
+
+  const dateTime = (i) => {
+    return LocalDateTime.parse(i).format(
+      DateTimeFormatter.ofPattern("dd.MM.yyyy | HH:mm")
+    );
+  };
 
   return (
     <Wrapper>
       <button onClick={handleClick}>back</button>
       {event && (
         <CardWrapper>
-          <img src={event?.pictureUrl} alt={"event"} />
+          <img src={event.pictureUrl} alt={""} />
           <h2>{event.title}</h2>
           <p>{event.description}</p>
           <h3>when</h3>
-          <p>
-            {LocalDateTime.parse(event.dateTime).format(
-              DateTimeFormatter.ofPattern("dd.MM.yyyy | HH:mm")
-            )}{" "}
-            Uhr
-          </p>
+          <time>{dateTime(event.dateTime)} Uhr</time>
           <h3>where</h3>
-          <p>{event.location.name}</p>
-          <p>
+          <address>{event.location.name}</address>
+          <address>
             {event.location.address.street}, {event.location.address.postalCode}{" "}
             {event.location.address.city}
-          </p>
+          </address>
           <h3>infos</h3>
           <a href={event.infoUrl} target="_blank" rel="noreferrer">
             organizer

@@ -3,15 +3,15 @@ import styled from "styled-components/macro";
 export default function LocationCard({ location }) {
   return (
     <CardWrapper>
-      <img src={location.pictureUrl} alt={"location"} />
+      <img src={location.pictureUrl} alt={""} />
       <h2>{location.name}</h2>
       <a href={location.homepage} target="_blank" rel="noreferrer">
         Homepage
       </a>
-      <p>
+      <address>
         {location.address.street}, {location.address.postalCode}{" "}
         {location.address.city}
-      </p>
+      </address>
       {location.openingHours && (
         <p>
           Öffnungszeiten: <br />

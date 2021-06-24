@@ -50,7 +50,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021, 1,1,10,0))
                         .eventSetting(EventSetting.OUTDOOR)
                         .eventTypes(List.of(
-                                EventType.MUSIC.eventTypeDescription
+                                EventType.MUSIC.description
                         ))
                         .pictureUrl("picture1")
                         .infoUrl("info1")
@@ -65,7 +65,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021,2,2,20,0))
                         .eventSetting(EventSetting.OUTDOOR)
                         .eventTypes(List.of(
-                                EventType.MUSIC.eventTypeDescription
+                                EventType.MUSIC.description
                         ))
                         .pictureUrl("picture2")
                         .infoUrl("info2")
@@ -88,7 +88,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021, 1,1,10,0))
                         .eventSetting(EventSetting.OUTDOOR)
                         .eventTypes(List.of(
-                                EventType.MUSIC.eventTypeDescription
+                                EventType.MUSIC.description
                         ))
                         .pictureUrl("picture1")
                         .infoUrl("info1")
@@ -103,7 +103,7 @@ class EventControllerTest {
                         .dateTime(LocalDateTime.of(2021,2,2,20,0))
                         .eventSetting(EventSetting.OUTDOOR)
                         .eventTypes(List.of(
-                                EventType.MUSIC.eventTypeDescription
+                                EventType.MUSIC.description
                         ))
                         .pictureUrl("picture2")
                         .infoUrl("info2")

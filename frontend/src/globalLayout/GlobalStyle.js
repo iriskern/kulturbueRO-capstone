@@ -40,7 +40,6 @@ export default createGlobalStyle`
 
     p {
       font-size: 80%;
-      text-decoration: none;
       margin: 5px;
     }
 
@@ -50,8 +49,19 @@ export default createGlobalStyle`
       margin: 5px;
       display: inline-block;
     }
-
+    
     img {
       width: 330px;
+    }
+    
+    time {
+      font-size: 80%;
+      margin: 5px;
+    }
+
+    address {
+      font-size: 80%;
+      font-style: normal;
+      margin: 5px;
     }
 `;

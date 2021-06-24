@@ -3,19 +3,15 @@ import useLocations from "../hooks/useLocations";
 import LocationCard from "../components/LocationCard";
 
 export default function LocationsPage() {
-  const { locations } = useLocations();
+  const locationsSortedByName = useLocations();
 
   return (
     <Wrapper>
       <h1>Locations</h1>
 
-      <div>
-        {locations
-          .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
-          .map((location) => (
-            <LocationCard key={location.id} location={location} />
-          ))}
-      </div>
+      {locationsSortedByName.map((location) => (
+        <LocationCard key={location.id} location={location} />
+      ))}
     </Wrapper>
   );
 }
@@ -23,9 +19,4 @@ export default function LocationsPage() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
 `;

@@ -12,5 +12,5 @@ export default function useEvent(id) {
       .catch((error) => console.log(error.message));
   }, [id]);
 
-  return { event };
+  return event;
 }

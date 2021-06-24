@@ -11,19 +11,19 @@ export default function EventCard({ event }) {
   return (
     <CardWrapper onClick={handleClick}>
       <CardPicture>
-        <div className="date">
-          <p>{dateTime.format(DateTimeFormatter.ofPattern("MM"))}</p>
-          <p className="day">
+        <div>
+          <time>{dateTime.format(DateTimeFormatter.ofPattern("MM"))}</time>
+          <time className="day">
             {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
-          </p>
+          </time>
         </div>
-        <img src={event.pictureUrl} alt={"event"} />
+        <img src={event.pictureUrl} alt={""} />
       </CardPicture>
       <h2>{event.title}</h2>
-      <p>
+      <address>
         {event.location.name} {event.location.address.city}
-      </p>
-      <p>{dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))} Uhr</p>
+      </address>
+      <time>{dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))} Uhr</time>
     </CardWrapper>
   );
 }
@@ -41,7 +41,7 @@ const CardWrapper = styled.button`
 `;
 
 const CardPicture = styled.div`
-  .date {
+  div {
     height: 51px;
     text-align: center;
     line-height: 50%;
@@ -50,11 +50,11 @@ const CardPicture = styled.div`
     background: #ecf765;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
 
-    .day {
-      font-size: 160%;
-      font-weight: bold;
-      padding-bottom: 3px;
-    }
+  .day {
+    font-size: 160%;
+    font-weight: bold;
+    padding-bottom: 3px;
   }
 `;
