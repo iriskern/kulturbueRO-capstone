@@ -3,7 +3,7 @@ import useLocations from "../hooks/useLocations";
 import LocationCard from "../components/LocationCard";
 
 export default function LocationsPage() {
-  const locationsSortedByName = useLocations();
+  const { locationsSortedByName } = useLocations();
 
   return (
     <Wrapper>
