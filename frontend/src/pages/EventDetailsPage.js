@@ -59,7 +59,6 @@ const Wrapper = styled.div`
     padding: 8px 10px 5px;
     border-radius: 5px;
     width: min-content;
-    cursor: pointer;
     background: #effffa;
   }
 `;

@@ -19,6 +19,7 @@ export default createGlobalStyle`
       text-align: inherit;
       color: inherit;
       border: none;
+      cursor: pointer;
     }
 
     h1 {
