@@ -27,6 +27,7 @@ export default createGlobalStyle`
       font-size: 100%;
       text-align: center;
       padding: 20px 15px;
+      margin: 0;
     }
 
     h2 {
@@ -35,8 +36,8 @@ export default createGlobalStyle`
     }
 
     h3 {
-      font-size: 90%;
-      margin: 15px 5px;
+      font-size: 100%;
+      margin: 15px 5px 5px 5px;
     }
 
     p {
@@ -49,6 +50,7 @@ export default createGlobalStyle`
       font-size: 80%;
       margin: 5px;
       display: inline-block;
+      padding: 0;
     }
     
     img {

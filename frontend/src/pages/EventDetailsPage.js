@@ -32,9 +32,9 @@ export default function EventDetailsPage() {
             {event.location.address.street}, {event.location.address.postalCode}{" "}
             {event.location.address.city}
           </address>
-          <h3>infos</h3>
+          <h3>links</h3>
           <a href={event.infoUrl} target="_blank" rel="noreferrer">
-            organizer
+            Organizer
           </a>
           <br />
           {event.ticketUrl && (

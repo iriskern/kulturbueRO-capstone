@@ -17,6 +17,7 @@ const PageLayout = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+  grid-template-rows: min-content 1fr;
   div {
     overflow-y: auto;
   }
