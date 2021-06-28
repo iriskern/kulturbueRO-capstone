@@ -13,13 +13,26 @@ export default createGlobalStyle`
       background: #699391;
     }
 
-    input, button {
+    input {
       font-size: 1em;
       font-family: inherit;
       text-align: inherit;
       color: inherit;
       border: none;
       cursor: pointer;
+    }
+
+    button {
+      font-size: 1em;
+      font-family: inherit;
+      text-align: inherit;
+      color: inherit;
+      border: none;
+      cursor: pointer;
+      padding: 8px 10px 5px;
+      margin: 5px;
+      border-radius: 5px;
+      background: #effffa;
     }
 
     h1 {

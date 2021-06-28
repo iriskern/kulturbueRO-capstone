@@ -4,10 +4,10 @@ import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
 import styled from "styled-components/macro";
 
 export default function EventDetailsPage() {
-  const history = useHistory();
   const { id } = useParams();
   const event = useEvent(id);
 
+  const history = useHistory();
   const handleClick = () => history.goBack();
 
   const dateTime = (i) => {
@@ -54,13 +54,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  button {
-    padding: 8px 10px 5px;
-    border-radius: 5px;
-    width: min-content;
-    background: #effffa;
-  }
 `;
 
 const CardWrapper = styled.div`
