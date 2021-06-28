@@ -1,10 +1,11 @@
 import { Switch, Route } from "react-router-dom";
 import Layout from "./globalLayout/Layout";
 import Homepage from "./pages/Homepage";
-import LocationsPage from "./pages/LocationsPage";
-import EventDetailsPage from "./pages/EventDetailsPage";
 import EventCalendarPage from "./pages/EventCalendarPage";
-import MapPage from "./pages/MapPage";
+import EventDetailsPage from "./pages/EventDetailsPage";
+import LocationsPage from "./pages/LocationsPage";
+import LocationsMapPage from "./pages/LoactionsMapPage";
+import LocationMapPage from "./pages/LocationMapPage";
 
 export default function App() {
   return (
@@ -19,14 +20,14 @@ export default function App() {
         <Route path="/events/:id/details">
           <EventDetailsPage />
         </Route>
-        <Route path="/locations">
+        <Route path="/locations" exact>
           <LocationsPage />
         </Route>
-        <Route path="/map">
-          <MapPage />
+        <Route path="/locations/map" exact>
+          <LocationsMapPage />
         </Route>
-        <Route path="/map/:id">
-          <MapPage />
+        <Route path="/locations/map/:id">
+          <LocationMapPage />
         </Route>
       </Switch>
     </Layout>
