@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage";
 import LocationsPage from "./pages/LocationsPage";
 import EventDetailsPage from "./pages/EventDetailsPage";
 import EventCalendarPage from "./pages/EventCalendarPage";
+import MapPage from "./pages/MapPage";
 
 export default function App() {
   return (
@@ -20,6 +21,12 @@ export default function App() {
         </Route>
         <Route path="/locations">
           <LocationsPage />
+        </Route>
+        <Route path="/map">
+          <MapPage />
+        </Route>
+        <Route path="/map/:id">
+          <MapPage />
         </Route>
       </Switch>
     </Layout>
