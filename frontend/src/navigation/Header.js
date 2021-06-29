@@ -13,8 +13,8 @@ export default function Header() {
         <img src={"/favicon.ico"} alt={"icon"} />
       </NavLink>
       <div>
-        <Burger open={open} setOpen={setOpen} />
-        <Menu open={open} setOpen={setOpen} />
+        <Burger open={open} setOpen={() => setOpen(!open)} />
+        <Menu open={open} setOpen={() => setOpen(!open)} />
       </div>
     </Wrapper>
   );
