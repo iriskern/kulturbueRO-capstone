@@ -1,7 +1,7 @@
 package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.Location;
-import de.neuefische.backend.repos.LocationRepo;
+import de.neuefische.backend.repo.LocationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@ package de.neuefische.backend.controller;
 import de.neuefische.backend.model.Event;
 import de.neuefische.backend.model.EventSetting;
 import de.neuefische.backend.model.EventType;
-import de.neuefische.backend.repos.EventRepo;
+import de.neuefische.backend.repo.EventRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
