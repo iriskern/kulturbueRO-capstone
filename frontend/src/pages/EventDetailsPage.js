@@ -18,7 +18,6 @@ export default function EventDetailsPage() {
 
   return (
     <Wrapper>
-      <button onClick={handleClick}>back</button>
       {event && (
         <CardWrapper>
           <img src={event.pictureUrl} alt={""} />
@@ -46,14 +45,21 @@ export default function EventDetailsPage() {
           <p>{event.eventTypes.join(", ")}</p>
         </CardWrapper>
       )}
+      <button onClick={handleClick}>back</button>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   align-items: center;
+
+  button {
+    background: #ecf765;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    font-size: 75%;
+  }
 `;
 
 const CardWrapper = styled.div`

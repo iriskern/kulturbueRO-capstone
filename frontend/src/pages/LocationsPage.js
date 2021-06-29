@@ -14,12 +14,11 @@ export default function LocationsPage() {
       <h1>Locations</h1>
 
       <div>
-        <button onClick={handleClick}>show map</button>
-
         {locationsSortedByName.map((location) => (
           <LocationCard key={location.id} location={location} />
         ))}
       </div>
+      <Button onClick={handleClick}>show map</Button>
     </Wrapper>
   );
 }
@@ -31,6 +30,13 @@ const Wrapper = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
+`;
+
+const Button = styled.button`
+  background: #ecf765;
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  font-size: 75%;
 `;
