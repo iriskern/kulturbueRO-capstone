@@ -22,6 +22,19 @@ export default createGlobalStyle`
       cursor: pointer;
     }
 
+    section {
+      font-size: 1em;
+      font-family: inherit;
+      text-align: inherit;
+      color: inherit;
+      border: none;
+      cursor: pointer;
+      padding: 8px 10px 5px;
+      margin: 5px;
+      border-radius: 5px;
+      background: #effffa;
+    }
+
     button {
       font-size: 1em;
       font-family: inherit;
@@ -50,7 +63,7 @@ export default createGlobalStyle`
 
     h3 {
       font-size: 100%;
-      margin: 15px 5px 5px 5px;
+      margin: 18px 5px 5px 5px;
     }
 
     p {
@@ -59,10 +72,10 @@ export default createGlobalStyle`
     }
 
     a {
-      text-decoration: none;
+      text-decoration: inherit;
+      color: inherit;
       font-size: 80%;
       margin: 5px;
-      display: inline-block;
       padding: 0;
     }
     
