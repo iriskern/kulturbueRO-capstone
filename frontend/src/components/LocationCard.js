@@ -1,8 +1,12 @@
 import styled from "styled-components/macro";
+import { useHistory } from "react-router-dom";
 
 export default function LocationCard({ location }) {
+  const history = useHistory();
+  const handleClick = () => history.push(`/locations/map/${location.id}`);
+
   return (
-    <CardWrapper>
+    <CardWrapper onClick={handleClick}>
       <img src={location.pictureUrl} alt={""} />
       <h2>{location.name}</h2>
       <a href={location.homepage} target="_blank" rel="noreferrer">
@@ -22,7 +26,7 @@ export default function LocationCard({ location }) {
   );
 }
 
-const CardWrapper = styled.div`
+const CardWrapper = styled.button`
   background: #effffa;
   width: 330px;
   padding: 0 0 20px;

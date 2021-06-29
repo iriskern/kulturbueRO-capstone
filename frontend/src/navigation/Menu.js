@@ -42,7 +42,7 @@ const StyledMenu = styled.nav`
 
   h1 {
     text-align: left;
-    padding: 0px;
+    padding: 0;
     font-size: 160%;
   }
 

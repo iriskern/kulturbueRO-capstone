@@ -13,12 +13,26 @@ export default createGlobalStyle`
       background: #699391;
     }
 
-    input, button {
+    input {
       font-size: 1em;
       font-family: inherit;
       text-align: inherit;
       color: inherit;
       border: none;
+      cursor: pointer;
+    }
+
+    button {
+      font-size: 1em;
+      font-family: inherit;
+      text-align: inherit;
+      color: inherit;
+      border: none;
+      cursor: pointer;
+      padding: 8px 10px 5px;
+      margin: 5px;
+      border-radius: 5px;
+      background: #effffa;
     }
 
     h1 {
@@ -26,6 +40,7 @@ export default createGlobalStyle`
       font-size: 100%;
       text-align: center;
       padding: 20px 15px;
+      margin: 0;
     }
 
     h2 {
@@ -34,8 +49,8 @@ export default createGlobalStyle`
     }
 
     h3 {
-      font-size: 90%;
-      margin: 15px 5px;
+      font-size: 100%;
+      margin: 15px 5px 5px 5px;
     }
 
     p {
@@ -48,6 +63,7 @@ export default createGlobalStyle`
       font-size: 80%;
       margin: 5px;
       display: inline-block;
+      padding: 0;
     }
     
     img {

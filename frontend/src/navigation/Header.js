@@ -2,15 +2,16 @@ import { useState } from "react";
 import Burger from "./Burger";
 import Menu from "./Menu";
 import styled from "styled-components/macro";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
     <Wrapper>
-      <a href="/home">
+      <NavLink to="/home">
         <img src={"/favicon.ico"} alt={"icon"} />
-      </a>
+      </NavLink>
       <div>
         <Burger open={open} setOpen={setOpen} />
         <Menu open={open} setOpen={setOpen} />

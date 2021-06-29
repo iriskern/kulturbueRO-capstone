@@ -4,10 +4,10 @@ import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
 import styled from "styled-components/macro";
 
 export default function EventDetailsPage() {
-  const history = useHistory();
   const { id } = useParams();
   const event = useEvent(id);
 
+  const history = useHistory();
   const handleClick = () => history.goBack();
 
   const dateTime = (i) => {
@@ -32,9 +32,9 @@ export default function EventDetailsPage() {
             {event.location.address.street}, {event.location.address.postalCode}{" "}
             {event.location.address.city}
           </address>
-          <h3>infos</h3>
+          <h3>links</h3>
           <a href={event.infoUrl} target="_blank" rel="noreferrer">
-            organizer
+            Organizer
           </a>
           <br />
           {event.ticketUrl && (
@@ -54,14 +54,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  button {
-    padding: 8px 10px 5px;
-    border-radius: 5px;
-    width: min-content;
-    cursor: pointer;
-    background: #effffa;
-  }
 `;
 
 const CardWrapper = styled.div`
