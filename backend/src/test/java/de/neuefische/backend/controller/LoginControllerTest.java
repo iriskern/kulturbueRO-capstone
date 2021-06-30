@@ -1,5 +1,6 @@
 package de.neuefische.backend.controller;
 
+import de.neuefische.backend.dto.LoginData;
 import de.neuefische.backend.security.model.AppUser;
 import de.neuefische.backend.security.repo.AppUserRepo;
 import io.jsonwebtoken.Claims;
@@ -35,7 +36,7 @@ class LoginControllerTest {
 
 
     @Test
-    public void LoginWithValidCredentialsShouldReturnValidJwtToken() {
+    public void loginWithValidCredentialsShouldReturnValidJwtToken() {
         //Given
         appUserRepo.save(AppUser.builder()
                 .username("Bob")
@@ -43,8 +44,8 @@ class LoginControllerTest {
                 .build());
 
         //When
-        AppUser appUser = new AppUser("Bob", "1234");
-        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", appUser, String.class);
+        LoginData loginData = new LoginData("Bob", "1234");
+        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginData, String.class);
 
         //Then
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
@@ -53,16 +54,16 @@ class LoginControllerTest {
     }
 
     @Test
-    public void LoginWithInvalidCredentialsShouldReturnNoToken() {
+    public void loginWithInvalidCredentialsShouldReturnNoToken() {
         //Given
         appUserRepo.save(AppUser.builder()
                 .username("Bob")
-                .password(encoder.encode("wrongPassword"))
+                .password(encoder.encode("1234"))
                 .build());
 
         //When
-        AppUser appUser = new AppUser("Bob", "1234");
-        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", appUser, String.class);
+        LoginData loginData = new LoginData("Bob", "wrongPassword");
+        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginData, String.class);
 
         //Then
         assertThat(response.getStatusCode(), is(HttpStatus.FORBIDDEN));
