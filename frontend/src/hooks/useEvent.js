@@ -9,7 +9,7 @@ export default function useEvent(id) {
       .get(`/events/${id}/details`)
       .then((response) => response.data)
       .then(setEvent)
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.error(error.message));
   }, [id]);
 
   return event;

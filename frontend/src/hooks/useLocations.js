@@ -9,7 +9,7 @@ export default function useLocations() {
       .get("/locations")
       .then((response) => response.data)
       .then(setLocations)
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.error(error.message));
   }, []);
 
   const locationsSortedByName = locations.sort((a, b) =>

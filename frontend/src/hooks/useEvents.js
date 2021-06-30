@@ -10,7 +10,7 @@ export default function useEvents() {
       .get("/events")
       .then((response) => response.data)
       .then(setEvents)
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.error(error.message));
   }, []);
 
   return events.sort((a, b) =>

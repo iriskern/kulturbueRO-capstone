@@ -9,7 +9,7 @@ export default function useLocation(id) {
       .get(`/locations/map/${id}`)
       .then((response) => response.data)
       .then(setLocation)
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.error(error.message));
   }, [id]);
 
   return location;
