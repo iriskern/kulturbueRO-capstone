@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import AuthContext from "../context/AuthContext";
 
 export default function useLocations() {
   const [locations, setLocations] = useState([]);
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
     axios
-      .get("/locations")
+      .get("/locations", { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => response.data)
       .then(setLocations)
       .catch((error) => console.error(error.message));

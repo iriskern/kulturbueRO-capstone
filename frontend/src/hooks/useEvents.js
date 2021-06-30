@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { LocalDateTime } from "@js-joda/core";
+import AuthContext from "../context/AuthContext";
 
 export default function useEvents() {
   const [events, setEvents] = useState([]);
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
     axios
-      .get("/events")
+      .get("/events", { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => response.data)
       .then(setEvents)
       .catch((error) => console.error(error.message));
