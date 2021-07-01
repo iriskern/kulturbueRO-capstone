@@ -9,7 +9,7 @@ const initialState = {
 
 export default function LoginPage() {
   const [credentials, setCredentials] = useState(initialState);
-  const { login } = useContext(AuthContext);
+  const { login, invalidLogin } = useContext(AuthContext);
 
   const handleChange = (event) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
@@ -42,6 +42,9 @@ export default function LoginPage() {
             value={credentials.password}
           />
         </label>
+        {invalidLogin === true && (
+          <p className="warning">username or password is not valid</p>
+        )}
         <button disabled={!credentials.password || !credentials.username}>
           Login
         </button>
@@ -81,6 +84,10 @@ const Wrapper = styled.div`
     width: 300px;
     border: 1px solid lightgray;
     border-radius: 5px;
+  }
+
+  .warning {
+    color: darkred;
   }
 
   button {
