@@ -5,20 +5,20 @@ export default function Menu({ open, setOpen }) {
   return (
     <StyledMenu open={open}>
       <h1>
-        <StyledLink to="/home" onClick={() => setOpen(!open)}>
+        <StyledLink to="/home" onClick={setOpen}>
           kulturbü<span>RO</span>
         </StyledLink>
       </h1>
-      <StyledLink to="/events" onClick={() => setOpen(!open)}>
+      <StyledLink to="/events" onClick={setOpen}>
         eventkalender
       </StyledLink>
-      <StyledLink to="/locations" onClick={() => setOpen(!open)}>
+      <StyledLink to="/locations" onClick={setOpen}>
         locations
       </StyledLink>
-      <StyledLink to="/myevents" onClick={() => setOpen(!open)}>
+      <StyledLink to="/myevents" onClick={setOpen}>
         meine events
       </StyledLink>
-      <StyledLink to="/mylocations" onClick={() => setOpen(!open)}>
+      <StyledLink to="/mylocations" onClick={setOpen}>
         meine locations
       </StyledLink>
     </StyledMenu>

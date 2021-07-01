@@ -22,7 +22,7 @@ export default function LocationsMap({ locations }) {
 
   return (
     <Wrapper>
-      <button onClick={handleClick}>back</button>
+      <Button onClick={handleClick}>back</Button>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -90,6 +90,14 @@ const Wrapper = styled.div`
     width: 50px;
     height: 50px;
   }
+`;
+
+const Button = styled.button`
+  background: #ecf765;
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  z-index: 2;
 `;
 
 const Map = styled.div`

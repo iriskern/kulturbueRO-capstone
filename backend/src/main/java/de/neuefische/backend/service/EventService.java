@@ -1,7 +1,7 @@
 package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.Event;
-import de.neuefische.backend.repos.EventRepo;
+import de.neuefische.backend.repo.EventRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
 import styled from "styled-components/macro";
 
@@ -21,14 +21,19 @@ export default function EventCard({ event }) {
       </CardPicture>
       <h2>{event.title}</h2>
       <address>
-        {event.location.name} {event.location.address.city}
+        <StyledLink
+          onClick={(event) => event.stopPropagation()}
+          to={`/locations/map/${event.location.id}`}
+        >
+          {event.location.name} {event.location.address.city}
+        </StyledLink>
       </address>
       <time>{dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))} Uhr</time>
     </CardWrapper>
   );
 }
 
-const CardWrapper = styled.button`
+const CardWrapper = styled.section`
   background: #effffa;
   width: 330px;
   padding: 0 0 20px;
@@ -37,6 +42,13 @@ const CardWrapper = styled.button`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0 40px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
   position: relative;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: inherit;
+  color: inherit;
+  font-size: inherit;
+  margin: 0;
 `;
 
 const CardPicture = styled.div`

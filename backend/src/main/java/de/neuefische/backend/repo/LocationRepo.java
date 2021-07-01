@@ -1,4 +1,4 @@
-package de.neuefische.backend.repos;
+package de.neuefische.backend.repo;
 
 import de.neuefische.backend.model.Location;
 import org.springframework.data.repository.PagingAndSortingRepository;

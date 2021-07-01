@@ -6,30 +6,38 @@ import EventDetailsPage from "./pages/EventDetailsPage";
 import LocationsPage from "./pages/LocationsPage";
 import LocationsMapPage from "./pages/LoactionsMapPage";
 import LocationMapPage from "./pages/LocationMapPage";
+import LoginPage from "./pages/LoginPage";
+import AuthProvider from "./context/AuthProvider";
+import PrivateRoute from "./routing/PrivateRoute";
 
 export default function App() {
   return (
     <Layout>
-      <Switch>
-        <Route path="/home">
-          <Homepage />
-        </Route>
-        <Route path="/events" exact>
-          <EventCalendarPage />
-        </Route>
-        <Route path="/events/:id/details">
-          <EventDetailsPage />
-        </Route>
-        <Route path="/locations" exact>
-          <LocationsPage />
-        </Route>
-        <Route path="/locations/map" exact>
-          <LocationsMapPage />
-        </Route>
-        <Route path="/locations/map/:id">
-          <LocationMapPage />
-        </Route>
-      </Switch>
+      <AuthProvider>
+        <Switch>
+          <Route path="/" exact>
+            <LoginPage />
+          </Route>
+          <PrivateRoute path="/home">
+            <Homepage />
+          </PrivateRoute>
+          <PrivateRoute path="/events" exact>
+            <EventCalendarPage />
+          </PrivateRoute>
+          <PrivateRoute path="/events/:id/details">
+            <EventDetailsPage />
+          </PrivateRoute>
+          <PrivateRoute path="/locations" exact>
+            <LocationsPage />
+          </PrivateRoute>
+          <PrivateRoute path="/locations/map" exact>
+            <LocationsMapPage />
+          </PrivateRoute>
+          <PrivateRoute path="/locations/map/:id">
+            <LocationMapPage />
+          </PrivateRoute>
+        </Switch>
+      </AuthProvider>
     </Layout>
   );
 }
