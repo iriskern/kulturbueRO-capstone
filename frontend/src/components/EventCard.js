@@ -1,12 +1,20 @@
 import { Link, useHistory } from "react-router-dom";
+import Heart from "react-heart";
 import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
 import styled from "styled-components/macro";
+import { useState } from "react";
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, addEventToWatchlist }) {
   const history = useHistory();
   const handleClick = () => history.push(`/events/${event.id}/details`);
+  const handleLike = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    addEventToWatchlist(event);
+  };
 
   const dateTime = LocalDateTime.parse(event.dateTime);
+  const [active, setActive] = useState(false);
 
   return (
     <CardWrapper onClick={handleClick}>
@@ -17,6 +25,14 @@ export default function EventCard({ event }) {
             {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
           </time>
         </div>
+        <LikeButton onClick={handleLike}>
+          <Heart
+            isActive={active}
+            onClick={() => setActive(!active)}
+            inactiveColor="#ecf765"
+            activeColor="#ecf765"
+          />
+        </LikeButton>
         <img src={event.pictureUrl} alt={""} />
       </CardPicture>
       <h2>{event.title}</h2>
@@ -68,4 +84,13 @@ const CardPicture = styled.div`
     font-weight: bold;
     padding-bottom: 3px;
   }
+`;
+
+const LikeButton = styled.button`
+  width: 55px;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  background-color: transparent;
+  margin: 0;
 `;
