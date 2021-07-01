@@ -1,5 +1,6 @@
 package de.neuefische.backend.controller;
 
+import de.neuefische.backend.dto.WatchedEventDto;
 import de.neuefische.backend.model.Event;
 import de.neuefische.backend.service.WatchedEventsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("events/watched")
+@RequestMapping("/events/watched")
 public class WatchedEventsController {
 
     private final WatchedEventsService watchedEventsService;
@@ -20,8 +21,8 @@ public class WatchedEventsController {
     }
 
     @PostMapping
-    public void addEventToWatchlist(@RequestBody Event newEvent) {
-        watchedEventsService.addEventToWatchlist(newEvent);
+    public void addEventToWatchlist(@RequestBody WatchedEventDto eventToWatch) {
+        watchedEventsService.addEventToWatchlist(eventToWatch.getId());
     }
 
     @GetMapping
