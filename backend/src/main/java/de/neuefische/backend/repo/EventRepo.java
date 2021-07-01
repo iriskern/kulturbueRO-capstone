@@ -13,4 +13,6 @@ public interface EventRepo extends PagingAndSortingRepository<Event, String> {
     List<Event> findAll();
 
     Optional<Event> findById(String id);
+
+    List<Event> findByWatchedBy(String watchedBy);
 }
