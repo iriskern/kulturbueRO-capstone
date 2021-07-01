@@ -48,7 +48,7 @@ class EventControllerTest {
         eventRepo.deleteAll();
     }
 
-    private HttpHeaders login() {
+    private HttpHeaders getHttpHeader() {
         appUserRepo.save(AppUser.builder()
                 .username("Bob")
                 .password(encoder.encode("1234"))
@@ -94,7 +94,7 @@ class EventControllerTest {
         ));
 
         //When
-        HttpHeaders headers = login();
+        HttpHeaders headers = getHttpHeader();
         ResponseEntity<Event[]> response = testRestTemplate.exchange("http://localhost:"+port+"/events", HttpMethod.GET, new HttpEntity<>(headers), Event[].class);
 
         //Then
