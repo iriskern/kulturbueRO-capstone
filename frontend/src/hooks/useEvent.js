@@ -14,7 +14,7 @@ export default function useEvent(id) {
       .then((response) => response.data)
       .then(setEvent)
       .catch((error) => console.error(error.message));
-  }, [id]);
+  }, [id, token]);
 
   return event;
 }

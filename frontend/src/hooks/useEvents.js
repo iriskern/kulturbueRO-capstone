@@ -13,7 +13,7 @@ export default function useEvents() {
       .then((response) => response.data)
       .then(setEvents)
       .catch((error) => console.error(error.message));
-  }, []);
+  }, [token]);
 
   return events.sort((a, b) =>
     LocalDateTime.parse(a.dateTime).isBefore(LocalDateTime.parse(b.dateTime))

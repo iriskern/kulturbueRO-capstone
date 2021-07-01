@@ -14,7 +14,7 @@ export default function useLocation(id) {
       .then((response) => response.data)
       .then(setLocation)
       .catch((error) => console.error(error.message));
-  }, [id]);
+  }, [id, token]);
 
   return location;
 }
