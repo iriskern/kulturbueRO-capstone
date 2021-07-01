@@ -9,6 +9,7 @@ import LocationMapPage from "./pages/LocationMapPage";
 import LoginPage from "./pages/LoginPage";
 import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./routing/PrivateRoute";
+import MyEventsPage from "./pages/MyEventsPage";
 
 export default function App() {
   return (
@@ -35,6 +36,9 @@ export default function App() {
           </PrivateRoute>
           <PrivateRoute path="/locations/map/:id">
             <LocationMapPage />
+          </PrivateRoute>
+          <PrivateRoute path="/myevents">
+            <MyEventsPage />
           </PrivateRoute>
         </Switch>
       </AuthProvider>
