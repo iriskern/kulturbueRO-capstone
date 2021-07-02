@@ -13,26 +13,24 @@ import java.util.Optional;
 @Service
 public class WatchedEventsService {
 
-    private final EventService eventService;
     private final EventRepo eventRepo;
 
     @Autowired
-    public WatchedEventsService(EventService eventService, EventRepo eventRepo) {
-        this.eventService = eventService;
+    public WatchedEventsService(EventRepo eventRepo) {
         this.eventRepo = eventRepo;
     }
 
-    public Event addUserToEventWatchedBy(String username, String eventId) {
-        Optional<Event> eventToWatch = eventService.getEventById(eventId);
+    public Event updateUserInEventWatchedBy(String username, String eventId) {
+        Optional<Event> eventToWatch = eventRepo.findById(eventId);
 
         if (eventToWatch.isPresent()) {
             Event updatedEvent = eventToWatch.get();
             if (!updatedEvent.getWatchedBy().contains(username)) {
                 updatedEvent.getWatchedBy().add(username);
-                return eventRepo.save(updatedEvent);
             } else {
-                throw new ResponseStatusException(HttpStatus.CONFLICT, "event already liked");
+                updatedEvent.getWatchedBy().remove(username);
             }
+            return eventRepo.save(updatedEvent);
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "event not found");
         }

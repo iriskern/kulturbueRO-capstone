@@ -23,14 +23,17 @@ export default function useWatchedEvents() {
       : 0
   );
 
-  function addEventToWatchlist(eventToWatch) {
+  function updateEventInWatchlist(eventToWatch) {
     axios
-      .post("/events/watched", eventToWatch, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(() => setWatchedEvents([...watchedEvents, eventToWatch]))
+      .put(
+        "/events/watched",
+        { id: eventToWatch.id },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .catch((error) => console.error(error.message));
   }
 
-  return { watchedEventsSorted, addEventToWatchlist };
+  return { watchedEventsSorted, updateEventInWatchlist };
 }

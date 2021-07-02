@@ -20,9 +20,9 @@ public class WatchedEventsController {
         this.watchedEventsService = watchedEventsService;
     }
 
-    @PostMapping
-    public Event addUserToEventWatchedBy(Principal principal, @RequestBody WatchedEventDto eventToWatch) {
-        return watchedEventsService.addUserToEventWatchedBy(principal.getName(), eventToWatch.getId());
+    @PutMapping
+    public Event updateUserInEventWatchedBy(Principal principal, @RequestBody WatchedEventDto eventToWatch) {
+        return watchedEventsService.updateUserInEventWatchedBy(principal.getName(), eventToWatch.getId());
     }
 
     @GetMapping
