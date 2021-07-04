@@ -13,4 +13,6 @@ public interface LocationRepo extends PagingAndSortingRepository<Location, Strin
     List<Location> findAll();
 
     Optional<Location> findById(String id);
+
+    List<Location> findByWatchedBy(String watchedBy);
 }
