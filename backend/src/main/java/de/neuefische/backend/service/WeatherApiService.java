@@ -1,6 +1,5 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.dto.WeatherApiRequestDto;
 import de.neuefische.backend.model.weatherapi.WeatherApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,10 +21,10 @@ public class WeatherApiService {
         this.restTemplate = restTemplate;
     }
 
-    public WeatherApiResponse getWeatherData(WeatherApiRequestDto coordinates) {
+    public WeatherApiResponse getWeatherData(double latitude, double longitude) {
         String requestUrl = weatherApiUrl
-                +"?lat="+coordinates.getLatitude()
-                +"&lon="+coordinates.getLongitude()
+                +"?lat="+latitude
+                +"&lon="+longitude
                 +"&units=metric&lang=de"
                 +"&appid="+owmApiKey;
         ResponseEntity<WeatherApiResponse> response = restTemplate.getForEntity(requestUrl, WeatherApiResponse.class);
