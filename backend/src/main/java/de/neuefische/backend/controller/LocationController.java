@@ -13,7 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("locations")
+@RequestMapping("/locations")
 public class LocationController {
 
     private final LocationService locationService;

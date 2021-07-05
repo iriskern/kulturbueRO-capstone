@@ -1,12 +1,24 @@
 import { Link, useHistory } from "react-router-dom";
+import Heart from "react-heart";
 import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
 import styled from "styled-components/macro";
+import { useContext, useState } from "react";
+import useWatchedEvents from "../hooks/useWatchedEvents";
+import AuthContext from "../context/AuthContext";
 
 export default function EventCard({ event }) {
   const history = useHistory();
   const handleClick = () => history.push(`/events/${event.id}/details`);
 
   const dateTime = LocalDateTime.parse(event.dateTime);
+
+  const { userData } = useContext(AuthContext);
+  const { updateEventInWatchlist } = useWatchedEvents();
+  const handleLike = (evt) => {
+    evt.stopPropagation();
+    updateEventInWatchlist(event);
+  };
+  const [active, setActive] = useState(event.watchedBy.includes(userData.sub));
 
   return (
     <CardWrapper onClick={handleClick}>
@@ -17,8 +29,21 @@ export default function EventCard({ event }) {
             {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
           </time>
         </div>
+
+        {userData && (
+          <LikeButton onClick={handleLike}>
+            <Heart
+              isActive={active}
+              onClick={() => setActive(!active)}
+              inactiveColor="#ecf765"
+              activeColor="#ecf765"
+            />
+          </LikeButton>
+        )}
+
         <img src={event.pictureUrl} alt={""} />
       </CardPicture>
+
       <h2>{event.title}</h2>
       <address>
         <StyledLink
@@ -68,4 +93,13 @@ const CardPicture = styled.div`
     font-weight: bold;
     padding-bottom: 3px;
   }
+`;
+
+const LikeButton = styled.button`
+  width: 55px;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  background-color: transparent;
+  margin: 0;
 `;

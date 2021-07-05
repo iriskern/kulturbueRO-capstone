@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("auth/login")
+@RequestMapping("/auth/login")
 public class LoginController {
 
     private final AuthenticationManager authenticationManager;
