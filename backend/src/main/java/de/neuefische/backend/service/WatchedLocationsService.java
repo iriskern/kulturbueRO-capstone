@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class WatchedLocationsService {
@@ -21,19 +20,17 @@ public class WatchedLocationsService {
     }
 
     public Location updateUserInLocationWatchedBy(String username, String locationId) {
-        Optional<Location> locationToWatch = locationRepo.findById(locationId);
+        Location locationToWatch = locationRepo
+                .findById(locationId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "location not found"));
 
-        if (locationToWatch.isPresent()) {
-            Location updatedLocation = locationToWatch.get();
-            if (!updatedLocation.getWatchedBy().contains(username)) {
-                updatedLocation.getWatchedBy().add(username);
-            } else {
-                updatedLocation.getWatchedBy().remove(username);
-            }
-            return locationRepo.save(updatedLocation);
+        if (!locationToWatch.getWatchedBy().contains(username)) {
+            locationToWatch.getWatchedBy().add(username);
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "location not found");
+            locationToWatch.getWatchedBy().remove(username);
         }
+
+        return locationRepo.save(locationToWatch);
     }
 
     public List<Location> listAllWatchedLocations(String watchedBy) {
