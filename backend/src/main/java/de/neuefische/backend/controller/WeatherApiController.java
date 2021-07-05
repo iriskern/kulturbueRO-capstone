@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/weather")
 public class WeatherApiController {
@@ -23,7 +21,7 @@ public class WeatherApiController {
     }
 
     @GetMapping
-    public List<WeatherApiResponse> getWeatherData(@RequestBody WeatherApiRequestDto coordinates) {
+    public WeatherApiResponse getWeatherData(@RequestBody WeatherApiRequestDto coordinates) {
         return weatherApiService.getWeatherData(coordinates);
     }
 
