@@ -42,8 +42,12 @@ const StyledMenu = styled.nav`
 
   h1 {
     text-align: left;
-    padding: 0;
+    padding: 10px 0 0 20px;
+    margin-left: -20px;
     font-size: 160%;
+    background: #699391;
+    border-radius: 0 5px 5px 0;
+    width: min-content;
   }
 
   span {
