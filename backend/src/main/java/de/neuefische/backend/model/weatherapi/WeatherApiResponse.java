@@ -12,5 +12,4 @@ import lombok.NoArgsConstructor;
 public class WeatherApiResponse {
 
     private WeatherApiList[] list;
-    private WeatherApiCity city;
 }
