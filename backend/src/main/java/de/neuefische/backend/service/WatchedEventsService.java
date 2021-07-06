@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class WatchedEventsService {
@@ -21,19 +20,17 @@ public class WatchedEventsService {
     }
 
     public Event updateUserInEventWatchedBy(String username, String eventId) {
-        Optional<Event> eventToWatch = eventRepo.findById(eventId);
+        Event eventToWatch = eventRepo
+                .findById(eventId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "event not found"));
 
-        if (eventToWatch.isPresent()) {
-            Event updatedEvent = eventToWatch.get();
-            if (!updatedEvent.getWatchedBy().contains(username)) {
-                updatedEvent.getWatchedBy().add(username);
-            } else {
-                updatedEvent.getWatchedBy().remove(username);
-            }
-            return eventRepo.save(updatedEvent);
+        if (!eventToWatch.getWatchedBy().contains(username)) {
+            eventToWatch.getWatchedBy().add(username);
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "event not found");
+            eventToWatch.getWatchedBy().remove(username);
         }
+
+        return eventRepo.save(eventToWatch);
     }
 
     public List<Event> listAllWatchedEvents(String watchedBy) {
