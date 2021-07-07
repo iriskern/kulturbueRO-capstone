@@ -7,7 +7,7 @@ export default function MyEventsPage() {
 
   return (
     <Wrapper>
-      <h1>My Events</h1>
+      <h1>meine events</h1>
 
       <div>
         {watchedEventsSorted.map((event) => (

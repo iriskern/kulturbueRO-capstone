@@ -7,7 +7,7 @@ export default function EventCalendarPage() {
 
   return (
     <Wrapper>
-      <h1>Event Calendar</h1>
+      <h1>eventkalender</h1>
 
       <div>
         {eventsSortedByDate.map((event) => (

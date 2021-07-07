@@ -11,7 +11,7 @@ export default function LocationsPage() {
 
   return (
     <Wrapper>
-      <h1>Locations</h1>
+      <h1>locations</h1>
 
       <div>
         {locationsSortedByName.map((location) => (

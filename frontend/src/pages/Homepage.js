@@ -7,7 +7,7 @@ export default function Homepage() {
 
   return (
     <Wrapper>
-      <h1>Event Highlights</h1>
+      <h1>event highlights</h1>
 
       <div>
         {eventsSortedByDate

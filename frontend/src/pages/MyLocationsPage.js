@@ -7,7 +7,7 @@ export default function MyLocationsPage() {
 
   return (
     <Wrapper>
-      <h1>My Locations</h1>
+      <h1>meine locations</h1>
 
       <div>
         {watchedLocationsSortedByName.map((location) => (
