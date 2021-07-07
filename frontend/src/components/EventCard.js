@@ -41,7 +41,7 @@ export default function EventCard({ event }) {
           </LikeButton>
         )}
 
-        <img src={event.pictureUrl} alt={""} />
+        <img src={event.pictureUrl} alt={"event"} />
       </CardPicture>
 
       <h2>{event.title}</h2>
@@ -62,18 +62,11 @@ const CardWrapper = styled.section`
   background: #effffa;
   width: 330px;
   padding: 0 0 20px;
-  margin: 30px auto 20px;
+  margin: 25px auto 5px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0 40px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
   position: relative;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: inherit;
-  color: inherit;
-  font-size: inherit;
-  margin: 0;
 `;
 
 const CardPicture = styled.div`
@@ -101,5 +94,10 @@ const LikeButton = styled.button`
   top: 0;
   right: 5px;
   background-color: transparent;
+  margin: 0;
+`;
+
+const StyledLink = styled(Link)`
+  font-size: inherit;
   margin: 0;
 `;
