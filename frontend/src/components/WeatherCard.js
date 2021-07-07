@@ -9,7 +9,7 @@ export default function WeatherCard({ latitude, longitude, dateTime }) {
       {weatherAtEvent === undefined ? (
         <p>coming soon...</p>
       ) : (
-        <CardWrapper>
+        <WeatherCardWrapper>
           <div>
             <p>{weatherAtEvent.weather[0].description}</p>
             <p className="degree">{weatherAtEvent.main.temp.toFixed(1)} °C</p>
@@ -22,13 +22,13 @@ export default function WeatherCard({ latitude, longitude, dateTime }) {
             }
             alt={"weatherIcon"}
           />
-        </CardWrapper>
+        </WeatherCardWrapper>
       )}
     </>
   );
 }
 
-const CardWrapper = styled.div`
+const WeatherCardWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
