@@ -1,7 +1,11 @@
 import styled from "styled-components/macro";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 export default function Menu({ open, setOpen }) {
+  const { token } = useContext(AuthContext);
+
   return (
     <StyledMenu open={open}>
       <h1>
@@ -15,12 +19,20 @@ export default function Menu({ open, setOpen }) {
       <StyledLink to="/locations" onClick={setOpen}>
         locations
       </StyledLink>
-      <StyledLink to="/myevents" onClick={setOpen}>
-        meine events
-      </StyledLink>
-      <StyledLink to="/mylocations" onClick={setOpen}>
-        meine locations
-      </StyledLink>
+      {token ? (
+        <>
+          <StyledLink to="/me/events" onClick={setOpen}>
+            meine events
+          </StyledLink>
+          <StyledLink to="/me/locations" onClick={setOpen}>
+            meine locations
+          </StyledLink>
+        </>
+      ) : (
+        <StyledLink to="/me/login" onClick={setOpen}>
+          login
+        </StyledLink>
+      )}
     </StyledMenu>
   );
 }
@@ -57,6 +69,4 @@ const StyledMenu = styled.nav`
 
 const StyledLink = styled(NavLink)`
   font-size: 100%;
-  color: #0d0c1d;
-  transition: color 0.3s linear;
 `;
