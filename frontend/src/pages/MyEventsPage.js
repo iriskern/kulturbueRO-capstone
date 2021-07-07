@@ -1,12 +1,12 @@
 import EventCard from "../components/EventCard";
-import styled from "styled-components/macro";
 import useWatchedEvents from "../hooks/useWatchedEvents";
+import CardListWrapper from "../components/styles/CardListWrapper";
 
 export default function MyEventsPage() {
   const { watchedEventsSorted } = useWatchedEvents();
 
   return (
-    <Wrapper>
+    <CardListWrapper>
       <h1>meine events</h1>
 
       <div>
@@ -14,16 +14,6 @@ export default function MyEventsPage() {
           <EventCard key={event.id} event={event} />
         ))}
       </div>
-    </Wrapper>
+    </CardListWrapper>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-`;
