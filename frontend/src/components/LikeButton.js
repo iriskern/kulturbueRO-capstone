@@ -10,7 +10,6 @@ export default function LikeButton({ likedThing }) {
   const [active, setActive] = useState(
     likedThing.watchedBy.includes(userData.sub)
   );
-
   const { updateEventInWatchlist } = useWatchedEvents();
   const { updateLocationInWatchlist } = useWatchedLocations();
 
@@ -38,6 +37,6 @@ const Button = styled.button`
   position: absolute;
   top: 0;
   right: 5px;
-  background-color: transparent;
+  background: transparent;
   margin: 0;
 `;
