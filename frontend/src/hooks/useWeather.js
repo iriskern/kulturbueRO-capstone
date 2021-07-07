@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ChronoUnit, LocalDateTime } from "@js-joda/core";
 
-export default function useWeather(latitude, longitude) {
+export default function useWeather(latitude, longitude, dateTime) {
   const [weather, setWeather] = useState();
 
   useEffect(() => {
@@ -12,5 +13,25 @@ export default function useWeather(latitude, longitude) {
       .catch((error) => console.error(error.message));
   }, [latitude, longitude]);
 
-  return weather;
+  function findWeatherAtEventTime(weather, dateTime) {
+    if (!weather) {
+      return undefined;
+    }
+    if (
+      LocalDateTime.parse(dateTime).compareTo(LocalDateTime.now().plusDays(4)) >
+      0
+    ) {
+      return undefined;
+    } else {
+      return weather.list.find(
+        (item) =>
+          LocalDateTime.parse(item.dt_txt.replace(" ", "T")).until(
+            LocalDateTime.parse(dateTime),
+            ChronoUnit.HOURS
+          ) < 3
+      );
+    }
+  }
+
+  return findWeatherAtEventTime(weather, dateTime);
 }

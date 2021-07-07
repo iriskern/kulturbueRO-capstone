@@ -1,30 +1,8 @@
 import useWeather from "../hooks/useWeather";
 import styled from "styled-components/macro";
-import { ChronoUnit, LocalDateTime } from "@js-joda/core";
 
 export default function WeatherCard({ latitude, longitude, dateTime }) {
-  const weather = useWeather(latitude, longitude);
-
-  function findWeatherAtEventTime(weather, dateTime) {
-    if (!weather) {
-      return undefined;
-    }
-    if (
-      LocalDateTime.parse(dateTime).compareTo(LocalDateTime.now().plusDays(4)) >
-      0
-    ) {
-      return undefined;
-    } else {
-      return weather.list.find(
-        (item) =>
-          LocalDateTime.parse(item.dt_txt.replace(" ", "T")).until(
-            LocalDateTime.parse(dateTime),
-            ChronoUnit.HOURS
-          ) < 3
-      );
-    }
-  }
-  const weatherAtEvent = findWeatherAtEventTime(weather, dateTime);
+  const weatherAtEvent = useWeather(latitude, longitude, dateTime);
 
   return (
     <>
@@ -42,7 +20,7 @@ export default function WeatherCard({ latitude, longitude, dateTime }) {
               weatherAtEvent.weather[0].icon +
               "@2x.png"
             }
-            alt={""}
+            alt={"weatherIcon"}
           />
         </CardWrapper>
       )}
