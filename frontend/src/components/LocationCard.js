@@ -16,7 +16,7 @@ export default function LocationCard({ location }) {
     updateLocationInWatchlist(location);
   };
   const [active, setActive] = useState(
-    location.watchedBy.includes(userData.sub)
+    userData ? location.watchedBy.includes(userData.sub) : false
   );
 
   return (

@@ -18,7 +18,7 @@ export default function EventCard({ event }) {
     evt.stopPropagation();
     updateEventInWatchlist(event);
   };
-  const [active, setActive] = useState(event.watchedBy.includes(userData.sub));
+  const [active, setActive] = useState(userData ? event.watchedBy.includes(userData.sub) : false);
 
   return (
     <CardWrapper onClick={handleClick}>

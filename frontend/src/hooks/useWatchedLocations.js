@@ -8,7 +8,7 @@ export default function useWatchedLocations() {
 
   useEffect(() => {
     axios
-      .get("/locations/watched", {
+      .get("/me/locations", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data)
@@ -23,7 +23,7 @@ export default function useWatchedLocations() {
   function updateLocationInWatchlist(locationToWatch) {
     axios
       .put(
-        "/locations/watched",
+        "/me/locations",
         { id: locationToWatch.id },
         {
           headers: { Authorization: `Bearer ${token}` },

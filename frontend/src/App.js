@@ -14,38 +14,20 @@ import MyLocationsPage from "./pages/MyLocationsPage";
 
 export default function App() {
   return (
-    <Layout>
-      <AuthProvider>
+    <AuthProvider>
+      <Layout>
         <Switch>
-          <Route path="/" exact>
-            <LoginPage />
-          </Route>
-          <PrivateRoute path="/home">
-            <Homepage />
-          </PrivateRoute>
-          <PrivateRoute path="/events" exact>
-            <EventCalendarPage />
-          </PrivateRoute>
-          <PrivateRoute path="/events/:id/details">
-            <EventDetailsPage />
-          </PrivateRoute>
-          <PrivateRoute path="/locations" exact>
-            <LocationsPage />
-          </PrivateRoute>
-          <PrivateRoute path="/locations/map" exact>
-            <LocationsMapPage />
-          </PrivateRoute>
-          <PrivateRoute path="/locations/map/:id">
-            <LocationMapPage />
-          </PrivateRoute>
-          <PrivateRoute path="/myevents">
-            <MyEventsPage />
-          </PrivateRoute>
-          <PrivateRoute path="/mylocations">
-            <MyLocationsPage />
-          </PrivateRoute>
+          <Route component={Homepage} path={["/", "/home"]} exact />
+          <Route component={EventCalendarPage} path="/events" exact />
+          <Route component={EventDetailsPage} path="/events/:id/details" />
+          <Route component={LocationsPage} path="/locations" exact />
+          <Route component={LocationsMapPage} path="/locations/map" exact />
+          <Route component={LocationMapPage} path="/locations/map/:id" />
+          <Route component={LoginPage} path="/me/login" exact />
+          <PrivateRoute component={MyEventsPage} path="/me/events" exact />
+          <PrivateRoute component={MyLocationsPage} path="/me/locations" />
         </Switch>
-      </AuthProvider>
-    </Layout>
+      </Layout>
+    </AuthProvider>
   );
 }
