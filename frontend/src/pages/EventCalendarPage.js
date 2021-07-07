@@ -1,12 +1,12 @@
 import useEvents from "../hooks/useEvents";
 import EventCard from "../components/EventCard";
-import styled from "styled-components/macro";
+import CardListWrapper from "../components/styles/CardListWrapper";
 
 export default function EventCalendarPage() {
   const eventsSortedByDate = useEvents();
 
   return (
-    <Wrapper>
+    <CardListWrapper>
       <h1>eventkalender</h1>
 
       <div>
@@ -14,16 +14,6 @@ export default function EventCalendarPage() {
           <EventCard key={event.id} event={event} />
         ))}
       </div>
-    </Wrapper>
+    </CardListWrapper>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-`;
