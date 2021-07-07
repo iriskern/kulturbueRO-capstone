@@ -50,7 +50,7 @@ export default function LocationsMap({ locations }) {
           </StyledMarker>
         ))}
         {selectedLocation && (
-          <Popup
+          <StyledPopup
             longitude={selectedLocation.address.longitude}
             latitude={selectedLocation.address.latitude}
             onClose={() => setSelectedLocation(null)}
@@ -66,7 +66,7 @@ export default function LocationsMap({ locations }) {
                 </address>
               </div>
             </ClickAwayListener>
-          </Popup>
+          </StyledPopup>
         )}
       </ReactMapGL>
       <NavButton onClick={handleClick}>back</NavButton>
@@ -75,7 +75,6 @@ export default function LocationsMap({ locations }) {
 }
 
 const Wrapper = styled.div`
-  font-size: 75%;
   overscroll-behavior-x: contain;
   display: flex;
   flex-direction: column;
@@ -93,4 +92,8 @@ const StyledMarker = styled(Marker)`
     width: 50px;
     height: 50px;
   }
+`;
+
+const StyledPopup = styled(Popup)`
+  font-size: 75%;
 `;

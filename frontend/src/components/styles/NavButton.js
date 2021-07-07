@@ -5,5 +5,6 @@ export default styled.button`
   position: fixed;
   right: 5px;
   bottom: 5px;
+  font-size: 75%;
   z-index: 2;
 `;
