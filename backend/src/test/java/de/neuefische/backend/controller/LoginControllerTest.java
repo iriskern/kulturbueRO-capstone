@@ -1,6 +1,6 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.dto.LoginData;
+import de.neuefische.backend.dto.LoginDataDto;
 import de.neuefische.backend.security.model.AppUser;
 import de.neuefische.backend.security.repo.AppUserRepo;
 import io.jsonwebtoken.Claims;
@@ -44,8 +44,8 @@ class LoginControllerTest {
                 .build());
 
         //When
-        LoginData loginData = new LoginData("Bob", "1234");
-        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginData, String.class);
+        LoginDataDto loginDataDto = new LoginDataDto("Bob", "1234");
+        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginDataDto, String.class);
 
         //Then
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
@@ -62,8 +62,8 @@ class LoginControllerTest {
                 .build());
 
         //When
-        LoginData loginData = new LoginData("Bob", "wrongPassword");
-        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginData, String.class);
+        LoginDataDto loginDataDto = new LoginDataDto("Bob", "wrongPassword");
+        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginDataDto, String.class);
 
         //Then
         assertThat(response.getStatusCode(), is(HttpStatus.FORBIDDEN));

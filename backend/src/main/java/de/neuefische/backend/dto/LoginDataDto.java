@@ -10,7 +10,7 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LoginData {
+public class LoginDataDto {
 
     @Id
     private String username;
