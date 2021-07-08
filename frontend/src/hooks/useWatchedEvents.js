@@ -35,5 +35,9 @@ export default function useWatchedEvents() {
       .catch((error) => console.error(error.message));
   }
 
-  return { watchedEventsSorted, updateEventInWatchlist };
+  function onLikedChange(eventId) {
+    setWatchedEvents(watchedEvents.filter((event) => event.id !== eventId));
+  }
+
+  return { watchedEventsSorted, updateEventInWatchlist, onLikedChange };
 }

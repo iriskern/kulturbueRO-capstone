@@ -7,7 +7,7 @@ import CardWrapper from "./styles/CardWrapper";
 import LikeButton from "./LikeButton";
 import StyledLink from "./styles/StyledLink";
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, onLikedChange }) {
   const history = useHistory();
   const handleClick = () => history.push(`/events/${event.id}/details`);
 
@@ -24,7 +24,9 @@ export default function EventCard({ event }) {
           </time>
         </Date>
 
-        {userData && <LikeButton likedThing={event} />}
+        {userData && (
+          <LikeButton likedThing={event} onLikedChange={onLikedChange} />
+        )}
         <img src={event.pictureUrl} alt={"event"} />
       </div>
 

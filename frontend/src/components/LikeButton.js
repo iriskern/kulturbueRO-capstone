@@ -5,7 +5,7 @@ import useWatchedEvents from "../hooks/useWatchedEvents";
 import useWatchedLocations from "../hooks/useWatchedLocations";
 import AuthContext from "../context/AuthContext";
 
-export default function LikeButton({ likedThing }) {
+export default function LikeButton({ likedThing, onLikedChange }) {
   const { userData } = useContext(AuthContext);
   const [active, setActive] = useState(
     likedThing.watchedBy.includes(userData.sub)
@@ -18,6 +18,7 @@ export default function LikeButton({ likedThing }) {
     likedThing.eventTypes
       ? updateEventInWatchlist(likedThing)
       : updateLocationInWatchlist(likedThing);
+    onLikedChange(likedThing.id);
   }
 
   return (

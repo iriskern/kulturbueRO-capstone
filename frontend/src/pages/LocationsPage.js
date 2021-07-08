@@ -10,13 +10,19 @@ export default function LocationsPage() {
 
   const { locationsSortedByName } = useLocations();
 
+  const helpFunction = () => {};
+
   return (
     <CardListWrapper>
       <h1>locations</h1>
 
       <div>
         {locationsSortedByName.map((location) => (
-          <LocationCard key={location.id} location={location} />
+          <LocationCard
+            key={location.id}
+            location={location}
+            onLikedChange={helpFunction}
+          />
         ))}
       </div>
       <NavButton onClick={handleClick}>show map</NavButton>

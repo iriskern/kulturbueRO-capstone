@@ -32,5 +32,15 @@ export default function useWatchedLocations() {
       .catch((error) => console.error(error.message));
   }
 
-  return { watchedLocationsSortedByName, updateLocationInWatchlist };
+  function onLikedChange(locationId) {
+    setWatchedLocations(
+      watchedLocations.filter((location) => location.id !== locationId)
+    );
+  }
+
+  return {
+    watchedLocationsSortedByName,
+    updateLocationInWatchlist,
+    onLikedChange,
+  };
 }

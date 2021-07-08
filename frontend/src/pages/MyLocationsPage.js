@@ -3,7 +3,7 @@ import LocationCard from "../components/LocationCard";
 import CardListWrapper from "../components/styles/CardListWrapper";
 
 export default function MyLocationsPage() {
-  const { watchedLocationsSortedByName } = useWatchedLocations();
+  const { watchedLocationsSortedByName, onLikedChange } = useWatchedLocations();
 
   return (
     <CardListWrapper>
@@ -11,7 +11,11 @@ export default function MyLocationsPage() {
 
       <div>
         {watchedLocationsSortedByName.map((location) => (
-          <LocationCard key={location.id} location={location} />
+          <LocationCard
+            key={location.id}
+            location={location}
+            onLikedChange={onLikedChange}
+          />
         ))}
       </div>
     </CardListWrapper>

@@ -4,7 +4,7 @@ import AuthContext from "../context/AuthContext";
 import CardWrapper from "./styles/CardWrapper";
 import LikeButton from "./LikeButton";
 
-export default function LocationCard({ location }) {
+export default function LocationCard({ location, onLikedChange }) {
   const history = useHistory();
   const handleClick = () => history.push(`/locations/map/${location.id}`);
 
@@ -13,7 +13,9 @@ export default function LocationCard({ location }) {
   return (
     <CardWrapper onClick={handleClick}>
       <div>
-        {userData && <LikeButton likedThing={location} />}
+        {userData && (
+          <LikeButton likedThing={location} onLikedChange={onLikedChange} />
+        )}
         <img src={location.pictureUrl} alt={"location"} />
       </div>
 

@@ -3,7 +3,7 @@ import useWatchedEvents from "../hooks/useWatchedEvents";
 import CardListWrapper from "../components/styles/CardListWrapper";
 
 export default function MyEventsPage() {
-  const { watchedEventsSorted } = useWatchedEvents();
+  const { watchedEventsSorted, onLikedChange } = useWatchedEvents();
 
   return (
     <CardListWrapper>
@@ -11,7 +11,11 @@ export default function MyEventsPage() {
 
       <div>
         {watchedEventsSorted.map((event) => (
-          <EventCard key={event.id} event={event} />
+          <EventCard
+            key={event.id}
+            event={event}
+            onLikedChange={onLikedChange}
+          />
         ))}
       </div>
     </CardListWrapper>
