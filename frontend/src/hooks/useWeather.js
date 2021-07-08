@@ -13,23 +13,28 @@ export default function useWeather(latitude, longitude, dateTime) {
       .catch((error) => console.error(error.message));
   }, [latitude, longitude]);
 
-  function findWeatherAtEventTime(weather, dateTime) {
-    if (!weather) {
-      return undefined;
-    }
-    if (
-      LocalDateTime.parse(dateTime).compareTo(LocalDateTime.now().plusDays(4)) >
+  const eventDateIsWithinNextFourDays = (dateTime) => {
+    return (
+      LocalDateTime.parse(dateTime).compareTo(LocalDateTime.now().plusDays(4)) <
       0
-    ) {
+    );
+  };
+
+  const weatherAtEventTime = (weather, dateTime) => {
+    return weather.list.find(
+      (item) =>
+        LocalDateTime.parse(item.dt_txt.replace(" ", "T")).until(
+          LocalDateTime.parse(dateTime),
+          ChronoUnit.HOURS
+        ) < 3
+    );
+  };
+
+  function findWeatherAtEventTime(weather, dateTime) {
+    if (!weather || !eventDateIsWithinNextFourDays(dateTime)) {
       return undefined;
     } else {
-      return weather.list.find(
-        (item) =>
-          LocalDateTime.parse(item.dt_txt.replace(" ", "T")).until(
-            LocalDateTime.parse(dateTime),
-            ChronoUnit.HOURS
-          ) < 3
-      );
+      return weatherAtEventTime(weather, dateTime);
     }
   }
 
