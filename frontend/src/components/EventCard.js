@@ -1,4 +1,6 @@
 import { useHistory } from "react-router-dom";
+import "@js-joda/timezone";
+import { Locale } from "@js-joda/locale_en";
 import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
 import styled from "styled-components/macro";
 import { useContext } from "react";
@@ -18,7 +20,11 @@ export default function EventCard({ event, onLikedChange }) {
     <CardWrapper onClick={handleClick}>
       <div>
         <Date>
-          <time>{dateTime.format(DateTimeFormatter.ofPattern("MM"))}</time>
+          <time>
+            {dateTime.format(
+              DateTimeFormatter.ofPattern("MMM").withLocale(Locale.ENGLISH)
+            )}
+          </time>
           <time className="day">
             {dateTime.format(DateTimeFormatter.ofPattern("dd"))}
           </time>
@@ -45,9 +51,9 @@ export default function EventCard({ event, onLikedChange }) {
 }
 
 const Date = styled.div`
-  height: 51px;
+  height: 58px;
   text-align: center;
-  line-height: 50%;
+  line-height: 70%;
   position: absolute;
   left: 20px;
   background: #ecf765;
