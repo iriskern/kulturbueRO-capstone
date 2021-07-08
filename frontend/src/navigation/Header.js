@@ -12,15 +12,15 @@ export default function Header() {
       <NavLink to="/home">
         <img src={"/favicon.ico"} alt={"icon"} />
       </NavLink>
-      <div>
+      <nav>
         <Burger open={open} setOpen={() => setOpen(!open)} />
         <Menu open={open} setOpen={() => setOpen(!open)} />
-      </div>
+      </nav>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     height: 50px;
   }
 
-  div {
+  nav {
     margin-right: 35px;
   }
 `;

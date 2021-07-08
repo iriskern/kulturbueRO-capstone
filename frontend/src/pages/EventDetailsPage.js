@@ -2,6 +2,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import useEvent from "../hooks/useEvent";
 import { DateTimeFormatter, LocalDateTime } from "@js-joda/core";
 import styled from "styled-components/macro";
+import WeatherCard from "../components/WeatherCard";
 
 export default function EventDetailsPage() {
   const { id } = useParams();
@@ -25,8 +26,10 @@ export default function EventDetailsPage() {
           {event.description.split("\n").map((sentence, index) => (
             <p key={index}>{sentence}</p>
           ))}
+
           <h3>when</h3>
           <time>{dateTime(event.dateTime)} Uhr</time>
+
           <h3>where</h3>
           <address>
             <StyledLink to={`/locations/map/${event.location.id}`}>
@@ -36,6 +39,14 @@ export default function EventDetailsPage() {
               {event.location.address.postalCode} {event.location.address.city}
             </StyledLink>
           </address>
+
+          <h3>weather</h3>
+          <WeatherCard
+            latitude={event.location.address.latitude}
+            longitude={event.location.address.longitude}
+            dateTime={event.dateTime}
+          />
+
           <h3>links</h3>
           <a href={event.infoUrl} target="_blank" rel="noreferrer">
             Veranstalter
@@ -46,6 +57,7 @@ export default function EventDetailsPage() {
               Ticket {event.entranceFee}€
             </a>
           )}
+
           <h3>tags</h3>
           <p>{event.eventTypes.join(", ")}</p>
         </CardWrapper>
