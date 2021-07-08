@@ -10,8 +10,6 @@ export default function LocationsPage() {
 
   const { locationsSortedByName } = useLocations();
 
-  const helpFunction = () => {};
-
   return (
     <CardListWrapper>
       <h1>locations</h1>
@@ -21,7 +19,7 @@ export default function LocationsPage() {
           <LocationCard
             key={location.id}
             location={location}
-            onLikedChange={helpFunction}
+            onLikedChange={() => {}}
           />
         ))}
       </div>

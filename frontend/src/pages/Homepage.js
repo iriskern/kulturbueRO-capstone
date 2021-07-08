@@ -5,8 +5,6 @@ import CardListWrapper from "../components/styles/CardListWrapper";
 export default function Homepage() {
   const eventsSortedByDate = useEvents();
 
-  const helpFunction = () => {};
-
   return (
     <CardListWrapper>
       <h1>event highlights</h1>
@@ -15,11 +13,7 @@ export default function Homepage() {
         {eventsSortedByDate
           .filter((event) => event.highlightEvent === true)
           .map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              onLikedChange={helpFunction}
-            />
+            <EventCard key={event.id} event={event} onLikedChange={() => {}} />
           ))}
       </div>
     </CardListWrapper>
