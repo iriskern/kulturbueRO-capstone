@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import styled from "styled-components/macro";
 import CardWrapper from "../components/styles/CardWrapper";
+import SmallStyledLink from "../components/styles/SmallStyledLink";
 
 const initialState = {
   username: "",
@@ -51,6 +52,7 @@ export default function LoginPage() {
             Login
           </button>
         </form>
+        <SmallStyledLink to="/me/signup">SignUp</SmallStyledLink>
       </Wrapper>
     </CardWrapper>
   );
