@@ -11,6 +11,7 @@ import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./routing/PrivateRoute";
 import MyEventsPage from "./pages/MyEventsPage";
 import MyLocationsPage from "./pages/MyLocationsPage";
+import SignUpPage from "./pages/SignUpPage";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route component={LocationsMapPage} path="/locations/map" exact />
           <Route component={LocationMapPage} path="/locations/map/:id" />
           <Route component={LoginPage} path="/me/login" exact />
+          <Route component={SignUpPage} path="/me/signup" exact />
           <PrivateRoute component={MyEventsPage} path="/me/events" exact />
           <PrivateRoute component={MyLocationsPage} path="/me/locations" />
         </Switch>

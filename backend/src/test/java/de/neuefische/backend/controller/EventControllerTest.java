@@ -1,6 +1,6 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.dto.LoginData;
+import de.neuefische.backend.dto.LoginDataDto;
 import de.neuefische.backend.model.Event;
 import de.neuefische.backend.model.EventSetting;
 import de.neuefische.backend.repo.EventRepo;
@@ -53,9 +53,9 @@ class EventControllerTest {
                 .username("Bob")
                 .password(encoder.encode("1234"))
                 .build());
-        LoginData loginData = new LoginData("Bob", "1234");
+        LoginDataDto loginDataDto = new LoginDataDto("Bob", "1234");
 
-        ResponseEntity<String> response = testRestTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginData, String.class);
+        ResponseEntity<String> response = testRestTemplate.postForEntity("http://localhost:"+port+"/auth/login", loginDataDto, String.class);
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(Objects.requireNonNull(response.getBody()));
         return headers;

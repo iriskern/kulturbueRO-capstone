@@ -18,7 +18,7 @@ export default function AuthProvider({ children }) {
         setToken(data);
         setUserData(jwt_decode(data.toString()));
       })
-      .then(() => history.push("/me/events"))
+      .then(() => history.push("/events"))
       .catch((error) => {
         setInvalidLogin(true);
         console.error(error.message);
