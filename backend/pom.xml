@@ -14,7 +14,7 @@
     <name>backend</name>
     <description>kulturbüRO - find events in and around rosenheim</description>
     <properties>
-        <java.version>16</java.version>
+        <java.version>15</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -68,7 +68,7 @@
     </dependencies>
 
     <build>
-        <finalName>kulturbuero-capstone</finalName>
+        <finalName>kulturbuero</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
