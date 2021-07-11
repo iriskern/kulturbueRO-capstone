@@ -13,20 +13,7 @@ export default createGlobalStyle`
       background: #699391;
     }
 
-    input {
-      font-size: 1em;
-      font-family: inherit;
-      text-align: inherit;
-      color: inherit;
-      border: none;
-      cursor: pointer;
-    }
-
     section {
-      font-size: 1em;
-      font-family: inherit;
-      text-align: inherit;
-      color: inherit;
       border: none;
       cursor: pointer;
       padding: 8px 10px 5px;
@@ -36,16 +23,20 @@ export default createGlobalStyle`
     }
 
     button {
-      font-size: 1em;
+      font-size: 100%;
       font-family: inherit;
-      text-align: inherit;
-      color: inherit;
+      text-align: center;
       border: none;
       cursor: pointer;
       padding: 8px 10px 5px;
       margin: 5px;
       border-radius: 5px;
-      background: #effffa;
+      background: #ecf765;
+    }
+
+    button:disabled {
+      background-color: lightgray;
+      color: darkgray;
     }
 
     h1 {
@@ -79,10 +70,6 @@ export default createGlobalStyle`
       padding: 0;
     }
     
-    img {
-      width: 330px;
-    }
-    
     time {
       font-size: 80%;
       margin: 5px;
@@ -92,5 +79,33 @@ export default createGlobalStyle`
       font-size: 80%;
       font-style: normal;
       margin: 5px;
+    }
+    
+    strong {
+      color: darkred;
+      font-size: 80%;
+      margin: 5px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+    }
+    
+    label {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      font-size: 70%;
+      font-family: inherit;
+      border: 1px solid lightgray;
+      cursor: pointer;
+      padding: 5px;
+      width: 300px;
+      border-radius: 5px;
+      margin: 2px 5px 25px 5px;
     }
 `;

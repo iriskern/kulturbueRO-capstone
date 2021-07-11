@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 export default function AuthProvider({ children }) {
   const history = useHistory();
   const [token, setToken] = useState();
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState(null);
   const [invalidLogin, setInvalidLogin] = useState(false);
 
   const login = (credentials) => {
@@ -18,7 +18,7 @@ export default function AuthProvider({ children }) {
         setToken(data);
         setUserData(jwt_decode(data.toString()));
       })
-      .then(() => history.push("/home"))
+      .then(() => history.push("/me/events"))
       .catch((error) => {
         setInvalidLogin(true);
         console.error(error.message);

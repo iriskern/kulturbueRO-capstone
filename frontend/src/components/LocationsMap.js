@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import "mapbox-gl/dist/mapbox-gl.css";
 import ClickAwayListener from "react-click-away-listener";
 import { useHistory } from "react-router-dom";
+import NavButton from "./styles/NavButton";
 
 export default function LocationsMap({ locations }) {
   const [viewport, setViewport] = useState({
@@ -22,7 +23,6 @@ export default function LocationsMap({ locations }) {
 
   return (
     <Wrapper>
-      <Button onClick={handleClick}>back</Button>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -31,59 +31,61 @@ export default function LocationsMap({ locations }) {
           setViewport(viewport);
         }}
       >
-        <Map>
-          {locations.map((location) => (
-            <Marker
-              key={location.id}
-              longitude={location.address.longitude}
-              latitude={location.address.latitude}
-              offsetTop={-50}
-              offsetLeft={-25}
+        {locations.map((location) => (
+          <StyledMarker
+            key={location.id}
+            longitude={location.address.longitude}
+            latitude={location.address.latitude}
+            offsetTop={-50}
+            offsetLeft={-25}
+          >
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+                setSelectedLocation(location);
+              }}
             >
-              <button
-                onClick={(event) => {
-                  event.preventDefault();
-                  setSelectedLocation(location);
-                }}
-              >
-                <img src={"/map_marker.png"} alt={"Event Marker Icon"} />
-              </button>
-            </Marker>
-          ))}
-          {selectedLocation && (
-            <Popup
-              longitude={selectedLocation.address.longitude}
-              latitude={selectedLocation.address.latitude}
-              onClose={() => setSelectedLocation(null)}
-              offsetTop={-52}
-            >
-              <ClickAwayListener onClickAway={handleClickAway}>
-                <div>
-                  <h2>{selectedLocation.name}</h2>
-                  <address>
-                    {selectedLocation.address.street},{" "}
-                    {selectedLocation.address.postalCode}{" "}
-                    {selectedLocation.address.city}
-                  </address>
-                </div>
-              </ClickAwayListener>
-            </Popup>
-          )}
-        </Map>
+              <img src={"/map_marker.png"} alt={"Event Marker Icon"} />
+            </button>
+          </StyledMarker>
+        ))}
+        {selectedLocation && (
+          <StyledPopup
+            longitude={selectedLocation.address.longitude}
+            latitude={selectedLocation.address.latitude}
+            onClose={() => setSelectedLocation(null)}
+            offsetTop={-52}
+          >
+            <ClickAwayListener onClickAway={handleClickAway}>
+              <div>
+                <h2>{selectedLocation.name}</h2>
+                <address>
+                  {selectedLocation.address.street},{" "}
+                  {selectedLocation.address.postalCode}{" "}
+                  {selectedLocation.address.city}
+                </address>
+              </div>
+            </ClickAwayListener>
+          </StyledPopup>
+        )}
       </ReactMapGL>
+      <NavButton onClick={handleClick}>back</NavButton>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  font-size: 75%;
   overscroll-behavior-x: contain;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+`;
 
-  .marker {
-    position: absolute;
+const StyledMarker = styled(Marker)`
+  button {
+    background: none;
+    padding: 0;
   }
 
   img {
@@ -92,17 +94,6 @@ const Wrapper = styled.div`
   }
 `;
 
-const Button = styled.button`
-  background: #ecf765;
-  position: fixed;
-  right: 5px;
-  bottom: 5px;
-  z-index: 2;
-`;
-
-const Map = styled.div`
-  button {
-    background: none;
-    padding: 0;
-  }
+const StyledPopup = styled(Popup)`
+  font-size: 75%;
 `;

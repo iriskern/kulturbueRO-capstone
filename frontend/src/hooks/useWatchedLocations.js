@@ -8,7 +8,7 @@ export default function useWatchedLocations() {
 
   useEffect(() => {
     axios
-      .get("/locations/watched", {
+      .get("/me/locations", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => response.data)
@@ -23,7 +23,7 @@ export default function useWatchedLocations() {
   function updateLocationInWatchlist(locationToWatch) {
     axios
       .put(
-        "/locations/watched",
+        "/me/locations",
         { id: locationToWatch.id },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -32,5 +32,15 @@ export default function useWatchedLocations() {
       .catch((error) => console.error(error.message));
   }
 
-  return { watchedLocationsSortedByName, updateLocationInWatchlist };
+  function onLikedChange(locationId) {
+    setWatchedLocations(
+      watchedLocations.filter((location) => location.id !== locationId)
+    );
+  }
+
+  return {
+    watchedLocationsSortedByName,
+    updateLocationInWatchlist,
+    onLikedChange,
+  };
 }

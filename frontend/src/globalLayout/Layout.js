@@ -10,7 +10,7 @@ export default function Layout(props) {
   );
 }
 
-const PageLayout = styled.div`
+const PageLayout = styled.style`
   position: fixed;
   top: 0;
   left: 0;
@@ -18,6 +18,7 @@ const PageLayout = styled.div`
   height: 100%;
   display: grid;
   grid-template-rows: min-content 1fr;
+
   div {
     overflow-y: auto;
   }

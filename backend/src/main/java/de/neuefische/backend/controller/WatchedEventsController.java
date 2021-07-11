@@ -10,7 +10,7 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events/watched")
+@RequestMapping("/me/events")
 public class WatchedEventsController {
 
     private final WatchedEventsService watchedEventsService;

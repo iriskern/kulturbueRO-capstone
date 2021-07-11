@@ -9,7 +9,7 @@ export default function useWatchedEvents() {
 
   useEffect(() => {
     axios
-      .get("/events/watched", { headers: { Authorization: `Bearer ${token}` } })
+      .get("/me/events", { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => response.data)
       .then(setWatchedEvents)
       .catch((error) => console.error(error.message));
@@ -26,7 +26,7 @@ export default function useWatchedEvents() {
   function updateEventInWatchlist(eventToWatch) {
     axios
       .put(
-        "/events/watched",
+        "/me/events",
         { id: eventToWatch.id },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -35,5 +35,9 @@ export default function useWatchedEvents() {
       .catch((error) => console.error(error.message));
   }
 
-  return { watchedEventsSorted, updateEventInWatchlist };
+  function onLikedChange(eventId) {
+    setWatchedEvents(watchedEvents.filter((event) => event.id !== eventId));
+  }
+
+  return { watchedEventsSorted, updateEventInWatchlist, onLikedChange };
 }

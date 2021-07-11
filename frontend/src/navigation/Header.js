@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <Wrapper>
       <NavLink to="/home">
-        <img src={"/favicon.ico"} alt={"icon"} />
+        <img src={"/favicon.ico"} alt={"logo"} />
       </NavLink>
       <nav>
         <Burger open={open} setOpen={() => setOpen(!open)} />

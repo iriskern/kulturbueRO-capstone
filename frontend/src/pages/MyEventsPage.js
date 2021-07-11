@@ -1,29 +1,23 @@
 import EventCard from "../components/EventCard";
-import styled from "styled-components/macro";
 import useWatchedEvents from "../hooks/useWatchedEvents";
+import CardListWrapper from "../components/styles/CardListWrapper";
 
 export default function MyEventsPage() {
-  const { watchedEventsSorted } = useWatchedEvents();
+  const { watchedEventsSorted, onLikedChange } = useWatchedEvents();
 
   return (
-    <Wrapper>
-      <h1>My Events</h1>
+    <CardListWrapper>
+      <h1>meine events</h1>
 
       <div>
         {watchedEventsSorted.map((event) => (
-          <EventCard key={event.id} event={event} />
+          <EventCard
+            key={event.id}
+            event={event}
+            onLikedChange={onLikedChange}
+          />
         ))}
       </div>
-    </Wrapper>
+    </CardListWrapper>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-`;

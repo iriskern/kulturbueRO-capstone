@@ -1,31 +1,27 @@
 import EventCard from "../components/EventCard";
-import styled from "styled-components/macro";
 import useEvents from "../hooks/useEvents";
+import CardListWrapper from "../components/styles/CardListWrapper";
 
 export default function Homepage() {
   const eventsSortedByDate = useEvents();
 
+  const helpFunction = () => {};
+
   return (
-    <Wrapper>
-      <h1>Event Highlights</h1>
+    <CardListWrapper>
+      <h1>event highlights</h1>
 
       <div>
         {eventsSortedByDate
           .filter((event) => event.highlightEvent === true)
           .map((event) => (
-            <EventCard key={event.id} event={event} />
+            <EventCard
+              key={event.id}
+              event={event}
+              onLikedChange={helpFunction}
+            />
           ))}
       </div>
-    </Wrapper>
+    </CardListWrapper>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-`;

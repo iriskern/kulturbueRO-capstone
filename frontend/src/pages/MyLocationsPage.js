@@ -1,29 +1,23 @@
-import styled from "styled-components/macro";
 import useWatchedLocations from "../hooks/useWatchedLocations";
 import LocationCard from "../components/LocationCard";
+import CardListWrapper from "../components/styles/CardListWrapper";
 
 export default function MyLocationsPage() {
-  const { watchedLocationsSortedByName } = useWatchedLocations();
+  const { watchedLocationsSortedByName, onLikedChange } = useWatchedLocations();
 
   return (
-    <Wrapper>
-      <h1>My Locations</h1>
+    <CardListWrapper>
+      <h1>meine locations</h1>
 
       <div>
         {watchedLocationsSortedByName.map((location) => (
-          <LocationCard key={location.id} location={location} />
+          <LocationCard
+            key={location.id}
+            location={location}
+            onLikedChange={onLikedChange}
+          />
         ))}
       </div>
-    </Wrapper>
+    </CardListWrapper>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-`;

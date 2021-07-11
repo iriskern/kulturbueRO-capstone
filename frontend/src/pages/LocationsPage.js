@@ -1,7 +1,8 @@
-import styled from "styled-components/macro";
 import useLocations from "../hooks/useLocations";
 import LocationCard from "../components/LocationCard";
 import { useHistory } from "react-router-dom";
+import CardListWrapper from "../components/styles/CardListWrapper";
+import NavButton from "../components/styles/NavButton";
 
 export default function LocationsPage() {
   const history = useHistory();
@@ -9,34 +10,22 @@ export default function LocationsPage() {
 
   const { locationsSortedByName } = useLocations();
 
+  const helpFunction = () => {};
+
   return (
-    <Wrapper>
-      <h1>Locations</h1>
+    <CardListWrapper>
+      <h1>locations</h1>
 
       <div>
         {locationsSortedByName.map((location) => (
-          <LocationCard key={location.id} location={location} />
+          <LocationCard
+            key={location.id}
+            location={location}
+            onLikedChange={helpFunction}
+          />
         ))}
       </div>
-      <Button onClick={handleClick}>show map</Button>
-    </Wrapper>
+      <NavButton onClick={handleClick}>show map</NavButton>
+    </CardListWrapper>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-`;
-
-const Button = styled.button`
-  background: #ecf765;
-  position: fixed;
-  right: 5px;
-  bottom: 5px;
-  font-size: 75%;
-`;

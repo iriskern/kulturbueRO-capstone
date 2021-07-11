@@ -1,26 +1,38 @@
 import styled from "styled-components/macro";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
+import StyledNavLink from "../components/styles/StyledNavLink";
 
 export default function Menu({ open, setOpen }) {
+  const { token } = useContext(AuthContext);
+
   return (
     <StyledMenu open={open}>
-      <h1>
-        <StyledLink to="/home" onClick={setOpen}>
+      <header>
+        <StyledNavLink to="/home" onClick={setOpen}>
           kulturbü<span>RO</span>
-        </StyledLink>
-      </h1>
-      <StyledLink to="/events" onClick={setOpen}>
+        </StyledNavLink>
+      </header>
+      <StyledNavLink to="/events" onClick={setOpen}>
         eventkalender
-      </StyledLink>
-      <StyledLink to="/locations" onClick={setOpen}>
+      </StyledNavLink>
+      <StyledNavLink to="/locations" onClick={setOpen}>
         locations
-      </StyledLink>
-      <StyledLink to="/myevents" onClick={setOpen}>
-        meine events
-      </StyledLink>
-      <StyledLink to="/mylocations" onClick={setOpen}>
-        meine locations
-      </StyledLink>
+      </StyledNavLink>
+      {token ? (
+        <>
+          <StyledNavLink to="/me/events" onClick={setOpen}>
+            meine events
+          </StyledNavLink>
+          <StyledNavLink to="/me/locations" onClick={setOpen}>
+            meine locations
+          </StyledNavLink>
+        </>
+      ) : (
+        <StyledNavLink to="/me/login" onClick={setOpen}>
+          login
+        </StyledNavLink>
+      )}
     </StyledMenu>
   );
 }
@@ -40,7 +52,7 @@ const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out;
   z-index: 9;
 
-  h1 {
+  header {
     text-align: left;
     padding: 10px 0 0 20px;
     margin-left: -20px;
@@ -53,10 +65,4 @@ const StyledMenu = styled.nav`
   span {
     color: #ecf765;
   }
-`;
-
-const StyledLink = styled(NavLink)`
-  font-size: 100%;
-  color: #0d0c1d;
-  transition: color 0.3s linear;
 `;
