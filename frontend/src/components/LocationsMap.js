@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import styled from "styled-components/macro";
-import "mapbox-gl/dist/mapbox-gl.css";
 import ClickAwayListener from "react-click-away-listener";
 import { useHistory } from "react-router-dom";
 import NavButton from "./styles/NavButton";
