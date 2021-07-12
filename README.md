@@ -4,7 +4,7 @@
 The kulturbüRO App shows you upcoming events for rosenheim and the area around. You can check out the locations and find them on a map.
 If you want, create an account and add events or locations to your favourites page.
 
-Try it out: 
+Try it out: https://kulturbuero.herokuapp.com/
 
 ## tools
 `Java`
