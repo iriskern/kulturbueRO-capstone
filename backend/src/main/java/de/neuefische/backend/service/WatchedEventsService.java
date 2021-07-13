@@ -2,7 +2,7 @@ package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.Event;
 import de.neuefische.backend.repo.EventRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -10,14 +10,10 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WatchedEventsService {
 
     private final EventRepo eventRepo;
-
-    @Autowired
-    public WatchedEventsService(EventRepo eventRepo) {
-        this.eventRepo = eventRepo;
-    }
 
     public Event updateUserInEventWatchedBy(String username, String eventId) {
         Event eventToWatch = eventRepo

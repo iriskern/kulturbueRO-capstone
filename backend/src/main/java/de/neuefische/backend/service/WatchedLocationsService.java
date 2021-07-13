@@ -2,7 +2,7 @@ package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.Location;
 import de.neuefische.backend.repo.LocationRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -10,14 +10,10 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WatchedLocationsService {
 
     private final LocationRepo locationRepo;
-
-    @Autowired
-    public WatchedLocationsService(LocationRepo locationRepo) {
-        this.locationRepo = locationRepo;
-    }
 
     public Location updateUserInLocationWatchedBy(String username, String locationId) {
         Location locationToWatch = locationRepo
