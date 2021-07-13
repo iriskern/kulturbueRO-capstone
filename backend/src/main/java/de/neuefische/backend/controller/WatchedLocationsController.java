@@ -3,7 +3,7 @@ package de.neuefische.backend.controller;
 import de.neuefische.backend.dto.WatchedLocationDto;
 import de.neuefische.backend.model.Location;
 import de.neuefische.backend.service.WatchedLocationsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -11,14 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/me/locations")
+@RequiredArgsConstructor
 public class WatchedLocationsController {
 
     private final WatchedLocationsService watchedLocationsService;
-
-    @Autowired
-    public WatchedLocationsController(WatchedLocationsService watchedLocationsService) {
-        this.watchedLocationsService = watchedLocationsService;
-    }
 
     @PutMapping
     public Location updateUserInLocationWatchedBy(Principal principal, @RequestBody WatchedLocationDto locationToWatch) {
