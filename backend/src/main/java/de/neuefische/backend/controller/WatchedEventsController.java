@@ -22,7 +22,7 @@ public class WatchedEventsController {
     }
 
     @GetMapping
-    public List<Event> listAllWatchedEvents(Principal principal) {
-        return watchedEventsService.listAllWatchedEvents(principal.getName());
+    public List<Event> listAllWatchedEventsSorted(Principal principal) {
+        return watchedEventsService.listAllWatchedEventsSorted(principal.getName());
     }
 }
