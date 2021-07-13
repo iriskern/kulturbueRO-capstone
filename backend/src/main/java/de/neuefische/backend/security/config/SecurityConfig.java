@@ -2,7 +2,7 @@ package de.neuefische.backend.security.config;
 
 import de.neuefische.backend.security.filter.JwtAuthFilter;
 import de.neuefische.backend.security.service.AppUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,16 +15,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final AppUserDetailsService appUserDetailsService;
     private final JwtAuthFilter authFilter;
-
-    @Autowired
-    public SecurityConfig(AppUserDetailsService appUserDetailsService, JwtAuthFilter authFilter) {
-        this.appUserDetailsService = appUserDetailsService;
-        this.authFilter = authFilter;
-    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

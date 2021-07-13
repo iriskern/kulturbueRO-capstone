@@ -2,7 +2,7 @@ package de.neuefische.backend.security.filter;
 
 import de.neuefische.backend.security.service.JwtUtilsService;
 import io.jsonwebtoken.Claims;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,14 +18,10 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final JwtUtilsService jwtUtilsService;
-
-    @Autowired
-    public JwtAuthFilter(JwtUtilsService jwtUtilsService) {
-        this.jwtUtilsService = jwtUtilsService;
-    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
