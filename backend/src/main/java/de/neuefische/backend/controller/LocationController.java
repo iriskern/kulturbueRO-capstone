@@ -20,8 +20,8 @@ public class LocationController {
     private final LocationService locationService;
 
     @GetMapping
-    public List<Location> listAllLocations() {
-        return locationService.listAllLocations();
+    public List<Location> listAllLocationsSorted() {
+        return locationService.listAllLocationsSorted();
     }
 
     @GetMapping("/map/{id}")

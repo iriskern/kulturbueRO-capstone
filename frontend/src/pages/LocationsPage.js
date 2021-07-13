@@ -8,14 +8,14 @@ export default function LocationsPage() {
   const history = useHistory();
   const handleClick = () => history.push(`/locations/map`);
 
-  const { locationsSortedByName } = useLocations();
+  const locations = useLocations();
 
   return (
     <CardListWrapper>
       <h1>locations</h1>
 
       <div>
-        {locationsSortedByName.map((location) => (
+        {locations.map((location) => (
           <LocationCard
             key={location.id}
             location={location}
