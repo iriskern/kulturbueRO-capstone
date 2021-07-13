@@ -20,8 +20,8 @@ public class EventController {
     private final EventService eventService;
 
     @GetMapping
-    public List<Event> listAllEvents() {
-        return eventService.listAllEvents();
+    public List<Event> listAllEventsSorted() {
+        return eventService.listAllEventsSorted();
     }
 
     @GetMapping("/{id}/details")
