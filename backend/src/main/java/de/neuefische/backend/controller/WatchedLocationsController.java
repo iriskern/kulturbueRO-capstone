@@ -22,7 +22,7 @@ public class WatchedLocationsController {
     }
 
     @GetMapping
-    public List<Location> listAllWatchedLocations(Principal principal) {
-        return watchedLocationsService.listAllWatchedLocations(principal.getName());
+    public List<Location> listAllWatchedLocationsSorted(Principal principal) {
+        return watchedLocationsService.listAllWatchedLocationsSorted(principal.getName());
     }
 }

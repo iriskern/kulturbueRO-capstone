@@ -16,10 +16,6 @@ export default function useWatchedLocations() {
       .catch((error) => console.error(error.message));
   }, [token]);
 
-  const watchedLocationsSortedByName = watchedLocations.sort((a, b) =>
-    a.name < b.name ? -1 : a.name > b.name ? 1 : 0
-  );
-
   function updateLocationInWatchlist(locationToWatch) {
     axios
       .put(
@@ -38,9 +34,5 @@ export default function useWatchedLocations() {
     );
   }
 
-  return {
-    watchedLocationsSortedByName,
-    updateLocationInWatchlist,
-    onLikedChange,
-  };
+  return { watchedLocations, updateLocationInWatchlist, onLikedChange };
 }

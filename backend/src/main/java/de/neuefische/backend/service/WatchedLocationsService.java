@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -29,11 +30,13 @@ public class WatchedLocationsService {
         return locationRepo.save(locationToWatch);
     }
 
-    public List<Location> listAllWatchedLocations(String watchedBy) {
+    public List<Location> listAllWatchedLocationsSorted(String watchedBy) {
         if(watchedBy.isEmpty()) {
             return locationRepo.findAll();
         }
 
-        return locationRepo.findByWatchedBy(watchedBy);
+        List<Location> allWatchedLocations = locationRepo.findByWatchedBy(watchedBy);
+        allWatchedLocations.sort(Comparator.comparing(Location::getName));
+        return allWatchedLocations;
     }
 }
