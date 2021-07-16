@@ -2,22 +2,19 @@ package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.Location;
 import de.neuefische.backend.repo.LocationRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WatchedLocationsService {
 
     private final LocationRepo locationRepo;
-
-    @Autowired
-    public WatchedLocationsService(LocationRepo locationRepo) {
-        this.locationRepo = locationRepo;
-    }
 
     public Location updateUserInLocationWatchedBy(String username, String locationId) {
         Location locationToWatch = locationRepo
@@ -33,11 +30,13 @@ public class WatchedLocationsService {
         return locationRepo.save(locationToWatch);
     }
 
-    public List<Location> listAllWatchedLocations(String watchedBy) {
+    public List<Location> listAllWatchedLocationsSorted(String watchedBy) {
         if(watchedBy.isEmpty()) {
             return locationRepo.findAll();
         }
 
-        return locationRepo.findByWatchedBy(watchedBy);
+        List<Location> allWatchedLocations = locationRepo.findByWatchedBy(watchedBy);
+        allWatchedLocations.sort(Comparator.comparing(Location::getName));
+        return allWatchedLocations;
     }
 }

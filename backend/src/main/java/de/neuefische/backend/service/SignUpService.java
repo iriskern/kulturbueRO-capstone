@@ -3,21 +3,16 @@ package de.neuefische.backend.service;
 import de.neuefische.backend.dto.SignUpDataDto;
 import de.neuefische.backend.security.model.AppUser;
 import de.neuefische.backend.security.repo.AppUserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class SignUpService {
 
     private final AppUserRepo appUserRepo;
     private final PasswordEncoder encoder;
-
-    @Autowired
-    public SignUpService(AppUserRepo appUserRepo, PasswordEncoder encoder) {
-        this.appUserRepo = appUserRepo;
-        this.encoder = encoder;
-    }
 
     public boolean signUp(SignUpDataDto signUpData) {
         if(appUserRepo.existsById(signUpData.getUsername()) ||
